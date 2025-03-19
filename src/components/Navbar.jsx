@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 // Import the EnquiryFormModal component
 const EnquiryFormModal = ({ isOpen, onClose }) => {
@@ -8,7 +9,7 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
     phone: '',
     message: ''
   });
-  
+ 
   // Create a ref for the modal content
   const modalContentRef = useRef(null);
 
@@ -34,7 +35,7 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
     // Close modal
     onClose();
   };
-  
+ 
   // Function to handle clicks outside the modal
   const handleOutsideClick = (e) => {
     if (modalContentRef.current && !modalContentRef.current.contains(e.target)) {
@@ -45,11 +46,11 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-all duration-300"
       onClick={handleOutsideClick}
     >
-      <div 
+      <div
         ref={modalContentRef}
         className="bg-white bg-opacity-95 rounded-md max-w-xl w-full relative shadow-xl"
         onClick={(e) => e.stopPropagation()} // Prevent clicks inside the form from closing it
@@ -144,6 +145,7 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const location = useLocation(); // Get current location
 
   useEffect(() => {
     if (isMenuOpen || isFormOpen) {
@@ -169,14 +171,18 @@ const Navbar = () => {
     setIsFormOpen(false);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="absolute top-0 left-0 w-full z-20 py-6">
       <div className="container mx-auto px-4 flex justify-between items-center relative">
         {/* Logo - Custom responsive adjustments */}
-        <div className="absolute left-6 sm:left-10 md:left-16 lg:left-24
+        <Link to="/" className="absolute left-6 sm:left-10 md:left-16 lg:left-24
                         text-red-600 text-3xl sm:text-2xl lg:text-3xl font-bold z-30">
           SBIPL
-        </div>
+        </Link>
 
         {/* Center Navigation */}
         <div className="flex-grow flex justify-center">
@@ -184,17 +190,42 @@ const Navbar = () => {
           <nav className="max-md:hidden flex flex-row
                           md:space-x-4 lg:space-x-8
                           text-white md:text-sm lg:text-lg">
-            <a href="#" className="hover:text-[#d20000] transition-colors duration-300">HOME</a>
-            <a href="#" className="hover:text-[#d20000] transition-colors duration-300">ABOUT US</a>
-            <a href="#" className="hover:text-[#d20000] transition-colors duration-300">PROJECTS</a>
-            <a href="#" className="hover:text-[#d20000] transition-colors duration-300">SERVICES</a>
-            <a href="#" className="hover:text-[#d20000] transition-colors duration-300">GALLERY</a>
+            <Link 
+              to="/" 
+              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/' ? 'text-[#d20000]' : ''}`}
+            >
+              HOME
+            </Link>
+            <Link 
+              to="/about" 
+              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/about' ? 'text-[#d20000]' : ''}`}
+            >
+              ABOUT US
+            </Link>
+            <Link 
+              to="/projects" 
+              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/projects' ? 'text-[#d20000]' : ''}`}
+            >
+              PROJECTS
+            </Link>
+            <Link 
+              to="/services" 
+              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/services' ? 'text-[#d20000]' : ''}`}
+            >
+              SERVICES
+            </Link>
+            <Link 
+              to="/gallery" 
+              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/gallery' ? 'text-[#d20000]' : ''}`}
+            >
+              GALLERY
+            </Link>
           </nav>
         </div>
 
         {/* Contact Us Button - Right side */}
         <div className="absolute right-20 md:right-16 lg:right-24 z-30 max-md:hidden">
-          <button 
+          <button
             onClick={openContactForm}
             className="bg-[#d20000] text-white px-4 py-2 rounded-sm font-medium hover:bg-red-700 transition-colors duration-300"
           >
@@ -214,14 +245,44 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-95 z-20 max-md:flex hidden flex-col items-center justify-center">
             <nav className="flex flex-col items-center space-y-8 text-white text-xl">
-              <a href="#" className="hover:text-[#d20000] transition-colors duration-300" onClick={toggleMenu}>HOME</a>
-              <a href="#" className="hover:text-[#d20000] transition-colors duration-300" onClick={toggleMenu}>ABOUT US</a>
-              <a href="#" className="hover:text-[#d20000] transition-colors duration-300" onClick={toggleMenu}>PROJECTS</a>
-              <a href="#" className="hover:text-[#d20000] transition-colors duration-300" onClick={toggleMenu}>SERVICES</a>
-              <a href="#" className="hover:text-[#d20000] transition-colors duration-300" onClick={toggleMenu}>GALLERY</a>
-              
+              <Link 
+                to="/" 
+                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/' ? 'text-[#d20000]' : ''}`}
+                onClick={closeMenu}
+              >
+                HOME
+              </Link>
+              <Link 
+                to="/about" 
+                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/about' ? 'text-[#d20000]' : ''}`}
+                onClick={closeMenu}
+              >
+                ABOUT US
+              </Link>
+              <Link 
+                to="/projects" 
+                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/projects' ? 'text-[#d20000]' : ''}`}
+                onClick={closeMenu}
+              >
+                PROJECTS
+              </Link>
+              <Link 
+                to="/services" 
+                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/services' ? 'text-[#d20000]' : ''}`}
+                onClick={closeMenu}
+              >
+                SERVICES
+              </Link>
+              <Link 
+                to="/gallery" 
+                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/gallery' ? 'text-[#d20000]' : ''}`}
+                onClick={closeMenu}
+              >
+                GALLERY
+              </Link>
+             
               {/* Contact Us Button in Mobile Menu */}
-              <button 
+              <button
                 onClick={openContactForm}
                 className="bg-[#d20000] text-white px-6 py-2 rounded-sm font-medium mt-4 hover:bg-red-700 transition-colors duration-300"
               >
