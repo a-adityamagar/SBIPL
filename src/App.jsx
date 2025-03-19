@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Vision from "./components/Vision";
 import Project from "./components/Project";
 import Service from "./components/Service";
+import Client from "./components/Client";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Vision/>
       <Project/>
       <Service/>
+      <Client/>
       {/* Other components will go here */}
     </div>
   );
