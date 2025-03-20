@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import stone from "../assets/stone.jpg";
 import truck from "../assets/truck.jpg";
 import doz from "../assets/doz.jpg";
 import suramveer from "../assets/suramveer.png";
 import surendra from "../assets/surendra.png";
 
-const AboutUs = () => {
+const Aboutus = () => {
   const [isSwapped, setIsSwapped] = useState(false);
 
   const togglePositions = () => {
@@ -162,4 +162,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Aboutus;
