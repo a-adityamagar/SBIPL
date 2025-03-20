@@ -9,6 +9,8 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
     phone: '',
     message: ''
   });
+
+  
  
   // Create a ref for the modal content
   const modalContentRef = useRef(null);
@@ -46,6 +48,7 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
+    
     <div
       className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-all duration-300"
       onClick={handleOutsideClick}
@@ -298,5 +301,5 @@ const Navbar = () => {
     </div>
   );
 };
-
+export { EnquiryFormModal };
 export default Navbar;

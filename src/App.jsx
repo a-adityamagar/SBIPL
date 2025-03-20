@@ -6,6 +6,7 @@ import Vision from "./components/Vision";
 import Project from "./components/Project";
 import Service from "./components/Service";
 import Client from "./components/Client";
+import Services from "./pages/Services";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<Aboutus />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </Router>
   );
