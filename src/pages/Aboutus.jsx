@@ -5,7 +5,7 @@ import truck from "../assets/truck.jpg";
 import doz from "../assets/doz.jpg";
 import suramveer from "../assets/suramveer.png";
 import surendra from "../assets/surendra.png";
-import building from "../assets/Building.jpg";
+import building from "../assets/building.jpg";
 import Client from "../components/Client";
 
 const Aboutus = () => {
