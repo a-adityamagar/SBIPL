@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hero from "./components/Hero"; // Your landing page component
-import AboutUs from "./Pages/Aboutus";
+import Hero from "./components/Hero";
+import AboutUs from "./components/AboutUs"; // Changed from "./Pages/Aboutus"
 import Vision from "./components/Vision";
 import Project from "./components/Project";
 import Service from "./components/Service";
@@ -13,9 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
-        {/* <Route path="/projects" element={<div>Projects Page</div>} /> */}
-        {/* <Route path="/services" element={<div>Services Page</div>} /> */}
-        {/* <Route path="/gallery" element={<div>Gallery Page</div>} /> */}
       </Routes>
     </Router>
   );
