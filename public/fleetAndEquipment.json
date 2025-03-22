@@ -183,38 +183,35 @@
     {
       "id": "equip1",
       "name": "BREAKER",
-      "image": "/assets/tatasigna5525.png",
-      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "image": "/assets/breaker.png",
+      "additionalImages": ["/assets/breaker1.png", "/assets/breaker2.png"],
       "specifications": {
-        "Power": "92 Hp",
-        "Capacity": "1 Ton",
-        "Fuel Type": "Diesel"
+       "Blow-rate" : "200 – 1,500 BPM",
+       "Impact energy" : "250 – 10,000 J"
       },
-      "quantity": 25
+      "quantity": 5
     },
     {
       "id": "equip2",
       "name": "ALTAS DRILLER",
-      "image": "/assets/tatasigna5525.png",
-      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "image": "/assets/driller.png",
+      "additionalImages": ["/assets/driller1.png", "/assets/driller2.png"],
       "specifications": {
-        "Power": "310 Hp",
-        "Capacity": "38 Tons",
-        "Fuel Type": "Diesel"
+        "Impact power": "14kw",
+        "Impact frequency": "45Hz"
       },
-      "quantity": 18
+      "quantity": 5
     },
     {
       "id": "equip3",
       "name": "ALTAS COMPRESSOR",
-      "image": "/assets/tatasigna5525.png",
-      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "image": "/assets/compressor.png",
+      "additionalImages": ["/assets/compressor.png", "/assets/compressor.png"],
       "specifications": {
-        "Power": "158 Hp",
-        "Capacity": "21 Tons",
-        "Fuel Type": "Diesel"
+        "Engine power": "56.5kw",
+        "Pressure": "7 bar"
       },
-      "quantity": 30
+      "quantity": 5
     },
     {
       "id": "equip4",
