@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Client from "../components/Client";
 
-// Updated ItemCard component with dynamic specifications
+// Updated ItemCard component with responsive design for small devices
 const ItemCard = ({ item }) => {
   const [mainImage, setMainImage] = useState(item.image);
   const [thumbnails, setThumbnails] = useState([...(item.additionalImages || [])]);
@@ -23,29 +23,29 @@ const ItemCard = ({ item }) => {
 
   return (
     <div className="bg-[#f7f7f7] shadow-md h-full">
-      {/* Header section */}
-      <div className="p-4 pb-2">
+      {/* Header section - reduced padding for mobile */}
+      <div className="p-3 pb-1 sm:p-4 sm:pb-2">
         <div className="flex justify-between items-start">
-          {/* Title with red underline */}
-          <h3 className="text-xl font-bold text-black border-b-2 border-red-600 pb-1 inline-block">
+          {/* Title with red underline - smaller text on mobile */}
+          <h3 className="text-base sm:text-lg md:text-xl font-bold text-black border-b-2 border-red-600 pb-1 inline-block">
             {item.name}
           </h3>
-          {/* Quantity circle */}
-          <div className="bg-red-600 rounded-full text-white h-14 w-14 flex flex-col items-center justify-center text-center">
-            <span className="text-xl font-bold">{item.quantity}</span>
-            <span className="text-xs">QTY</span>
+          {/* Quantity circle - smaller on mobile */}
+          <div className="bg-red-600 rounded-full text-white h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex flex-col items-center justify-center text-center">
+            <span className="text-sm sm:text-base md:text-xl font-bold">{item.quantity}</span>
+            <span className="text-[8px] sm:text-xs">QTY</span>
           </div>
         </div>
-        {/* Know more button */}
-        <button className="mt-2 bg-red-600 text-white px-4 py-1 text-sm font-medium">
+        {/* Know more button - smaller on mobile */}
+        <button className="mt-1 sm:mt-2 bg-red-600 text-white px-2 sm:px-4 py-0.5 sm:py-1 text-xs sm:text-sm font-medium">
           Know more
         </button>
       </div>
 
-      {/* Main Image section with transparent background */}
+      {/* Main Image section with responsive height */}
       <div
         className="relative flex justify-center items-center"
-        style={{ height: "250px" }}
+        style={{ height: "180px", minHeight: "150px" }}
       >
         <img
           src={mainImage}
@@ -55,27 +55,27 @@ const ItemCard = ({ item }) => {
         />
       </div>
 
-      {/* Updated Specifications and Images section with gray background */}
-      <div className="p-4 pt-3">
-        <div className="flex items-center justify-between">
-          {/* Dynamic Specifications in a row */}
-          <div className="flex items-center space-x-4 flex-1">
+      {/* Specifications and Images section - stacked on mobile */}
+      <div className="p-2 sm:p-3 md:p-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+          {/* Dynamic Specifications - scrollable on very small screens */}
+          <div className="flex items-center space-x-3 sm:space-x-4 flex-1 overflow-x-auto pb-2 sm:pb-0 w-full">
             {availableSpecs.map(([key, value]) => (
-              <div key={key} className="text-center">
-                <p className="text-lg font-bold text-black">{value}</p>
-                <p className="text-sm text-gray-400">{key}</p>
+              <div key={key} className="text-center flex-shrink-0">
+                <p className="text-sm sm:text-base md:text-lg font-bold text-black">{value}</p>
+                <p className="text-xs sm:text-sm text-gray-400">{key}</p>
               </div>
             ))}
           </div>
 
-          {/* Images in the same line */}
-          <div className="flex items-center space-x-2">
+          {/* Images - smaller on mobile */}
+          <div className="flex items-center space-x-1 sm:space-x-2 mt-2 sm:mt-0">
             {thumbnails.map((img, index) => (
               <img
                 key={index}
                 src={img}
                 alt={`${item.name} thumbnail ${index + 1}`}
-                className="h-8 cursor-pointer hover:opacity-80 transition-opacity"
+                className="h-6 sm:h-7 md:h-8 cursor-pointer hover:opacity-80 transition-opacity"
                 onClick={() => swapImages(img, index)}
                 style={{ mixBlendMode: "multiply" }}
               />
@@ -145,15 +145,15 @@ const Fleetandequipment = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        Loading...
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex justify-center items-center min-h-screen text-red-600">
-        Error: {error}
+      <div className="flex justify-center items-center min-h-screen text-red-600 px-4 text-center">
+        <p>Error loading data. Please try again later.</p>
       </div>
     );
   }
@@ -171,24 +171,24 @@ const Fleetandequipment = () => {
       const isEvenRow = pairIndex % 2 === 0;
 
       return (
-        <div key={pairIndex} className="flex flex-col md:flex-row gap-8 mb-8">
-          {/* First card in pair */}
+        <div key={pairIndex} className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8">
+          {/* First card in pair - full width on mobile */}
           {pair[0] && (
-            <div className={`md:w-${isEvenRow ? '3/5' : '2/5'}`}>
+            <div className={`w-full mb-4 md:mb-0 md:w-${isEvenRow ? '3/5' : '2/5'}`}>
               <ItemCard item={pair[0]} />
             </div>
           )}
-          
-          {/* Second card in pair (if available) */}
+         
+          {/* Second card in pair (if available) - full width on mobile */}
           {pair[1] && (
-            <div className={`md:w-${isEvenRow ? '2/5' : '3/5'}`}>
+            <div className={`w-full md:w-${isEvenRow ? '2/5' : '3/5'}`}>
               <ItemCard item={pair[1]} />
             </div>
           )}
-          
+         
           {/* If there's only one item in this pair, add empty placeholder to maintain layout */}
           {pair.length === 1 && (
-            <div className={`md:w-${isEvenRow ? '2/5' : '3/5'}`}>
+            <div className={`hidden md:block md:w-${isEvenRow ? '2/5' : '3/5'}`}>
               {/* Empty placeholder */}
             </div>
           )}
@@ -202,32 +202,32 @@ const Fleetandequipment = () => {
       {/* Navigation Bar */}
       <Navbar />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section with Background Image - reduced height on mobile */}
       <div
-        className="w-full h-[80vh] sm:h-[90vh] md:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
+        className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${currentContent.backgroundImage})`,
         }}
       >
         <div className="max-w-4xl px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg mb-4 sm:mb-6 leading-relaxed tracking-wide sm:tracking-widest">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg mb-3 sm:mb-4 md:mb-6 leading-relaxed tracking-wide sm:tracking-widest">
             {currentContent.title} <br />
             {currentContent.tagline}
           </h1>
         </div>
 
         {/* Scroll Down Indicator */}
-        <div className="absolute bottom-10 sm:bottom-20 animate-bounce text-white text-2xl sm:text-4xl">
+        <div className="absolute bottom-6 sm:bottom-10 md:bottom-20 animate-bounce text-white text-xl sm:text-2xl md:text-4xl">
           ⌄
         </div>
       </div>
 
-      {/* Main Content Section */}
-      <div className="w-full bg-gray-100 py-12 sm:py-16">
+      {/* Main Content Section - reduced padding on mobile */}
+      <div className="w-full bg-gray-100 py-8 sm:py-10 md:py-12 lg:py-16">
         <div className="container mx-auto flex flex-col md:flex-row">
           {/* Left side - Large equipment image */}
-          <div className="w-full md:w-1/2 p-4 md:p-6">
-            <div className="h-64 sm:h-80 md:h-96 lg:h-[28rem]">
+          <div className="w-full md:w-1/2 p-3 sm:p-4 md:p-6">
+            <div className="h-48 sm:h-64 md:h-80 lg:h-96">
               <img
                 src={currentContent.backgroundImage}
                 alt={
@@ -240,13 +240,13 @@ const Fleetandequipment = () => {
             </div>
           </div>
 
-          {/* Right side - Text content */}
-          <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-center">
+          {/* Right side - Text content - smaller text on mobile */}
+          <div className="w-full md:w-1/2 p-3 sm:p-4 md:p-6 flex flex-col justify-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
                 {currentContent.sectionTitle}
               </h2>
-              <p className="mb-6 sm:mb-8 text-gray-700 tracking-wider leading-loose text-base sm:text-lg">
+              <p className="mb-4 sm:mb-6 md:mb-8 text-gray-700 tracking-wide md:tracking-wider leading-relaxed md:leading-loose text-sm sm:text-base md:text-lg">
                 {currentContent.description}
               </p>
             </div>
@@ -254,9 +254,9 @@ const Fleetandequipment = () => {
         </div>
       </div>
 
-      {/* Items Section - Modified for adjusted card sizes */}
-      <div className="w-full py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
+      {/* Items Section - reduced padding on mobile */}
+      <div className="w-full py-8 sm:py-10 md:py-12 lg:py-16 bg-white">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           {/* Mixed size card layout with adjusted proportions */}
           <div className="max-w-6xl mx-auto">
             {data.length === 0 ? (

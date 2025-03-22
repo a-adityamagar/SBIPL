@@ -42,8 +42,10 @@
       "image": "/assets/mmbolero.png",
       "additionalImages": ["/assets/mmbolero2.png", "/assets/mmbolero1.png"],
       "specifications": {
-        "Power": "180 Hp",
+        "Power": "76 Hp",
+        "Torque": "200 Nm",
         "Fuel Type": "Diesel"
+
       },
       "quantity": 2
     }
@@ -145,8 +147,10 @@
       "image": "/assets/mahindracamper.png",
       "additionalImages": ["/assets/mahindracamper2.png", "/assets/mahindracamper1.png"],
       "specifications": {
-        "Power": "180 Hp",
-        "Fuel Type": "Diesel"
+        "Power": "75 Hp",
+        "Fuel Type": "Diesel",
+        "Torque": "200 Nm"
+
       },
       "quantity": 5
     },
@@ -214,15 +218,14 @@
     },
     {
       "id": "equip4",
-      "name": "Volvo EC210",
-      "image": "/assets/tatasigna5525.png",
-      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "name": "CRUSHER",
+      "image": "/assets/crusher.png",
+      "additionalImages": ["/assets/crusher1.png", "/assets/crusher2.png"],
       "specifications": {
-        "Power": "150 Hp",
-        "Capacity": "21 Tons",
-        "Fuel Type": "Diesel"
+        "Metric Ton per day": "4000",
+        "Metric ton per annual": "36 Lakh"
       },
-      "quantity": 22
+      "quantity": 6
     }
   ],
   "pageContent": {
