@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Client from "../components/Client";
 
-// Updated ItemCard component with responsive design for small devices
+// Updated ItemCard component with consistent horizontal layout and original backgrounds
 const ItemCard = ({ item }) => {
   const [mainImage, setMainImage] = useState(item.image);
   const [thumbnails, setThumbnails] = useState([...(item.additionalImages || [])]);
@@ -42,7 +42,7 @@ const ItemCard = ({ item }) => {
         </button>
       </div>
 
-      {/* Main Image section with responsive height */}
+      {/* Main Image section with transparent background */}
       <div
         className="relative flex justify-center items-center"
         style={{ height: "180px", minHeight: "150px" }}
@@ -55,21 +55,22 @@ const ItemCard = ({ item }) => {
         />
       </div>
 
-      {/* Specifications and Images section - stacked on mobile */}
-      <div className="p-2 sm:p-3 md:p-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
-          {/* Dynamic Specifications - scrollable on very small screens */}
-          <div className="flex items-center space-x-3 sm:space-x-4 flex-1 overflow-x-auto pb-2 sm:pb-0 w-full">
+      {/* Specifications and Images section - always horizontal */}
+      <div className="p-2 sm:p-3 md:p-4 ">
+        {/* Always keep in a row, but make it scrollable on small screens */}
+        <div className="flex items-center justify-between overflow-x-auto pb-1">
+          {/* Dynamic Specifications - scrollable on small screens */}
+          <div className="flex items-center space-x-3 sm:space-x-4 flex-1">
             {availableSpecs.map(([key, value]) => (
               <div key={key} className="text-center flex-shrink-0">
-                <p className="text-sm sm:text-base md:text-lg font-bold text-black">{value}</p>
-                <p className="text-xs sm:text-sm text-gray-400">{key}</p>
+                <p className="text-sm sm:text-base md:text-lg font-bold text-black whitespace-nowrap">{value}</p>
+                <p className="text-xs sm:text-sm text-gray-400 whitespace-nowrap">{key}</p>
               </div>
             ))}
           </div>
 
-          {/* Images - smaller on mobile */}
-          <div className="flex items-center space-x-1 sm:space-x-2 mt-2 sm:mt-0">
+          {/* Images - always in line with specs */}
+          <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 ml-2">
             {thumbnails.map((img, index) => (
               <img
                 key={index}
