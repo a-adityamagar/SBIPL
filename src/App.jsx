@@ -7,6 +7,7 @@ import Project from "./components/Project";
 import Service from "./components/Service";
 import Client from "./components/Client";
 import Services from "./pages/Services";
+import Fleetandequipment from "./pages/Fleetandequipment";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/fleets" element={<Fleetandequipment />} />
+        <Route path="/equipments" element={<Fleetandequipment />} />
       </Routes>
     </Router>
   );

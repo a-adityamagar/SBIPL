@@ -4,43 +4,44 @@ import { Link, useLocation } from "react-router-dom";
 // Import the EnquiryFormModal component
 const EnquiryFormModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
-  
- 
   // Create a ref for the modal content
   const modalContentRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
     });
     // Close modal
     onClose();
   };
- 
+
   // Function to handle clicks outside the modal
   const handleOutsideClick = (e) => {
-    if (modalContentRef.current && !modalContentRef.current.contains(e.target)) {
+    if (
+      modalContentRef.current &&
+      !modalContentRef.current.contains(e.target)
+    ) {
       onClose();
     }
   };
@@ -48,7 +49,6 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    
     <div
       className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-all duration-300"
       onClick={handleOutsideClick}
@@ -64,15 +64,30 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
           aria-label="Close"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
         <div className="p-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Make an enquiry</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Make an enquiry
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-900 font-medium mb-1">
+              <label
+                htmlFor="name"
+                className="block text-gray-900 font-medium mb-1"
+              >
                 Your name<span className="text-red-500">*</span>
               </label>
               <input
@@ -88,7 +103,10 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
             </div>
             <div className="flex flex-col md:flex-row gap-4 mb-4">
               <div className="flex-1">
-                <label htmlFor="email" className="block text-gray-900 font-medium mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-900 font-medium mb-1"
+                >
                   Email address<span className="text-red-500">*</span>
                 </label>
                 <input
@@ -103,7 +121,10 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
                 />
               </div>
               <div className="flex-1">
-                <label htmlFor="phone" className="block text-gray-900 font-medium mb-1">
+                <label
+                  htmlFor="phone"
+                  className="block text-gray-900 font-medium mb-1"
+                >
                   Phone no<span className="text-red-500">*</span>
                 </label>
                 <input
@@ -119,7 +140,10 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
               </div>
             </div>
             <div className="mb-6">
-              <label htmlFor="message" className="block text-gray-900 font-medium mb-1">
+              <label
+                htmlFor="message"
+                className="block text-gray-900 font-medium mb-1"
+              >
                 Your message
               </label>
               <textarea
@@ -148,21 +172,44 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation(); // Get current location
+  const dropdownRef = useRef(null);
+
+  // Determine which menu item to show based on current location
+  const isEquipmentsPage = location.pathname === "/equipments";
 
   useEffect(() => {
     if (isMenuOpen || isFormOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isMenuOpen, isFormOpen]);
 
+  useEffect(() => {
+    // Close dropdown when clicking outside
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const openContactForm = () => {
@@ -182,47 +229,108 @@ const Navbar = () => {
     <div className="absolute top-0 left-0 w-full z-20 py-6">
       <div className="container mx-auto px-4 flex justify-between items-center relative">
         {/* Logo - Custom responsive adjustments */}
-        <Link to="/" className="absolute left-6 sm:left-10 md:left-16 lg:left-24
-                        text-red-600 text-3xl sm:text-2xl lg:text-3xl font-bold z-30">
+        <Link
+          to="/"
+          className="absolute left-6 sm:left-10 md:left-16 lg:left-24
+                        text-red-600 text-3xl sm:text-2xl lg:text-3xl font-bold z-30"
+        >
           SBIPL
         </Link>
 
         {/* Center Navigation */}
         <div className="flex-grow flex justify-center">
           {/* Navigation - Custom responsive adjustments */}
-          <nav className="max-md:hidden flex flex-row
+          <nav
+            className="max-md:hidden flex flex-row
                           md:space-x-4 lg:space-x-8
-                          text-white md:text-sm lg:text-lg">
-            <Link 
-              to="/" 
-              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/' ? 'text-[#d20000]' : ''}`}
+                          text-white md:text-sm lg:text-lg"
+          >
+            <Link
+              to="/"
+              className={`hover:text-[#d20000] transition-colors duration-300 ${
+                location.pathname === "/" ? "text-[#d20000]" : ""
+              }`}
             >
               HOME
             </Link>
-            <Link 
-              to="/about" 
-              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/about' ? 'text-[#d20000]' : ''}`}
+            <Link
+              to="/about"
+              className={`hover:text-[#d20000] transition-colors duration-300 ${
+                location.pathname === "/about" ? "text-[#d20000]" : ""
+              }`}
             >
               ABOUT US
             </Link>
-            <Link 
-              to="/projects" 
-              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/projects' ? 'text-[#d20000]' : ''}`}
+            <Link
+              to="/projects"
+              className={`hover:text-[#d20000] transition-colors duration-300 ${
+                location.pathname === "/projects" ? "text-[#d20000]" : ""
+              }`}
             >
               PROJECTS
             </Link>
-            <Link 
-              to="/services" 
-              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/services' ? 'text-[#d20000]' : ''}`}
+            <Link
+              to="/services"
+              className={`hover:text-[#d20000] transition-colors duration-300 ${
+                location.pathname === "/services" ? "text-[#d20000]" : ""
+              }`}
             >
               SERVICES
             </Link>
-            <Link 
-              to="/gallery" 
-              className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/gallery' ? 'text-[#d20000]' : ''}`}
-            >
-              GALLERY
-            </Link>
+
+            {/* Dropdown for Fleets/Equipments */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={toggleDropdown}
+                className={`flex items-center hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/fleets" ||
+                  location.pathname === "/equipments"
+                    ? "text-[#d20000]"
+                    : ""
+                }`}
+              >
+                {/* Show EQUIPMENTS if on equipments page, otherwise show FLEETS */}
+                {isEquipmentsPage ? "EQUIPMENTS" : "FLEETS"}
+                <svg
+                  className={`ml-1 w-4 h-4 transition-transform duration-200 ${
+                    isDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Dropdown menu - show the opposite of what's currently displayed */}
+              {isDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 z-50">
+                  {isEquipmentsPage ? (
+                    <Link
+                      to="/fleets"
+                      className="block px-4 py-2 text-white hover:text-[#d20000] transition-colors duration-300"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      FLEETS
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/equipments"
+                      className="block px-4 py-2 text-white hover:text-[#d20000] transition-colors duration-300"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      EQUIPMENTS
+                    </Link>
+                  )}
+                </div>
+              )}
+            </div>
           </nav>
         </div>
 
@@ -248,42 +356,69 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-95 z-20 max-md:flex hidden flex-col items-center justify-center">
             <nav className="flex flex-col items-center space-y-8 text-white text-xl">
-              <Link 
-                to="/" 
-                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/' ? 'text-[#d20000]' : ''}`}
+              <Link
+                to="/"
+                className={`hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/" ? "text-[#d20000]" : ""
+                }`}
                 onClick={closeMenu}
               >
                 HOME
               </Link>
-              <Link 
-                to="/about" 
-                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/about' ? 'text-[#d20000]' : ''}`}
+              <Link
+                to="/about"
+                className={`hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/about" ? "text-[#d20000]" : ""
+                }`}
                 onClick={closeMenu}
               >
                 ABOUT US
               </Link>
-              <Link 
-                to="/projects" 
-                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/projects' ? 'text-[#d20000]' : ''}`}
+              <Link
+                to="/projects"
+                className={`hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/projects" ? "text-[#d20000]" : ""
+                }`}
                 onClick={closeMenu}
               >
                 PROJECTS
               </Link>
-              <Link 
-                to="/services" 
-                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/services' ? 'text-[#d20000]' : ''}`}
+              <Link
+                to="/services"
+                className={`hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/services" ? "text-[#d20000]" : ""
+                }`}
                 onClick={closeMenu}
               >
                 SERVICES
               </Link>
-              <Link 
-                to="/gallery" 
-                className={`hover:text-[#d20000] transition-colors duration-300 ${location.pathname === '/gallery' ? 'text-[#d20000]' : ''}`}
-                onClick={closeMenu}
-              >
-                GALLERY
-              </Link>
-             
+
+              {/* Mobile Fleets/Equipments Links */}
+              <div className="flex flex-col items-center space-y-4">
+                {/* Primary link - changes based on current page */}
+                <Link
+                  to={isEquipmentsPage ? "/equipments" : "/fleets"}
+                  className={`hover:text-[#d20000] transition-colors duration-300 ${
+                    (isEquipmentsPage && location.pathname === "/equipments") ||
+                    (!isEquipmentsPage && location.pathname === "/fleets")
+                      ? "text-[#d20000]"
+                      : ""
+                  }`}
+                  onClick={closeMenu}
+                >
+                  {isEquipmentsPage ? "EQUIPMENTS" : "FLEETS"}
+                </Link>
+
+                {/* Secondary link - the opposite of what's shown above */}
+                <Link
+                  to={isEquipmentsPage ? "/fleets" : "/equipments"}
+                  className="text-gray-400 hover:text-[#d20000] transition-colors duration-300 text-base"
+                  onClick={closeMenu}
+                >
+                  {isEquipmentsPage ? "FLEETS" : "EQUIPMENTS"}
+                </Link>
+              </div>
+
               {/* Contact Us Button in Mobile Menu */}
               <button
                 onClick={openContactForm}
@@ -301,5 +436,6 @@ const Navbar = () => {
     </div>
   );
 };
+
 export { EnquiryFormModal };
 export default Navbar;

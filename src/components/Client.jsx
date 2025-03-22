@@ -83,7 +83,7 @@ const Client = () => {
           <div className="space-y-3">
             <a href="#" className="block hover:text-red-400">Home</a>
             <a href="#" className="block hover:text-red-400">Projects</a>
-            <a href="#" className="block hover:text-red-400">Gallery</a>
+            <a href="#" className="block hover:text-red-400">Services</a>
             <a href="#" className="block hover:text-red-400">About Us</a>
            
             <div className="pt-3">

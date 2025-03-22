@@ -1,0 +1,244 @@
+{
+  "fleets": [
+    {
+      "id": "fleet1",
+      "name": "TATA SIGNA 5525",
+      "image": "assets/tatasigna5525.png",
+      "additionalImages": ["/assets/tatasigna55251.png", "/assets/tatasigna55252.png"],
+      "specifications": {
+        "Power": "250 Hp",
+        "Capacity": "55 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 50
+    },
+    {
+      "id": "fleet2",
+      "name": "ASHOK LEYLAND TIP",
+      "image": "/assets/ashokleylandtip.png",
+      "additionalImages": ["/assets/ashokleylandtip1.png", "/assets/ashokleylandtip2.png"],
+      "specifications": {
+        "Power": "240 Hp",
+        "Capacity": "47 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 42
+    },
+    {
+      "id": "fleet3",
+      "name": "BHARAT BENZ 5228",
+      "image": "/assets/bharatbenz5528.png",
+      "additionalImages": ["/assets/bharatbenz55281.png", "/assets/bharatbenz55282.png"],
+      "specifications": {
+        "Power": "281 Hp",
+        "Capacity": "55 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 40
+    },
+    {
+      "id": "fleet4",
+      "name": "MM BOLERO",
+      "image": "/assets/mmbolero.png",
+      "additionalImages": ["/assets/mmbolero2.png", "/assets/mmbolero1.png"],
+      "specifications": {
+        "Power": "180 Hp",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 2
+    }
+    ,
+    {
+      "id": "fleet5",
+      "name": "Wheel Loader",
+      "image": "/assets/loader.png",
+      "additionalImages": ["/assets/loader1.png", "/assets/loader2.png"],
+      "specifications": {
+        "Power": "221 Hp",
+        "Capacity": "3.1 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 4
+    }
+    ,
+    {
+      "id": "fleet6",
+      "name": "JCB",
+      "image": "/assets/jcb.png",
+      "additionalImages": ["/assets/jcb1.png", "/assets/jcb2.png"],
+      "specifications": {
+        "Power": "92 Hp",
+        "Capacity": "1.2 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 4
+    }
+    ,
+    {
+      "id": "fleet7",
+      "name": "TATA HITACHI 370",
+      "image": "/assets/tatahitachi370.png",
+      "additionalImages": ["/assets/tatahitachi3701.png", "/assets/tatahitachi370.png"],
+      "specifications": {
+        "Power": "274 Hp",
+        "Capacity": "2.3 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 8
+    }
+    ,
+    {
+      "id": "fleet8",
+      "name": "TATA HITACHI 220",
+      "image": "/assets/tatahitachi220.png",
+      "additionalImages": ["/assets/tatahitachi2201.png", "/assets/tatahitachi2202.png"],
+      "specifications": {
+        "Power": "148 Hp",
+        "Capacity":"1.2 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 4
+    }
+    ,
+    {
+      "id": "fleet9",
+      "name": "TATA HITACHI 210",
+      "image": "/assets/tatahitachi210.png",
+      "additionalImages": ["/assets/tatahitachi210.png", "/assets/tatahitachi210.png"],
+      "specifications": {
+        "Power": "132 Hp",
+        "Capacity": "1.2 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 10
+    }
+    ,
+    {
+      "id": "fleet10",
+      "name": "KOBELCO 370",
+      "image": "/assets/kobelco370.png",
+      "additionalImages": ["/assets/kobelco3701.png", "/assets/kobelco3702.png"],
+      "specifications": {
+        "Power": "270 Hp",
+        "Capacity": "2.1 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 2
+    }
+    ,
+    {
+      "id": "fleet11",
+      "name": "TATA SIGNA HWYA",
+      "image": "/assets/tatasignahwya.png",
+      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasignahwya2.png"],
+      "specifications": {
+        "Power": "250 Hp",
+        "Capacity": "35 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity":45
+    }
+    ,
+    {
+      "id": "fleet12",
+      "name": "Mahindra CAMPER",
+      "image": "/assets/mahindracamper.png",
+      "additionalImages": ["/assets/mahindracamper2.png", "/assets/mahindracamper1.png"],
+      "specifications": {
+        "Power": "180 Hp",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 5
+    },
+    {
+      "id": "fleet13",
+      "name": "MAHINDRA HYWA",
+      "image": "/assets/mahindrahywa.png",
+      "additionalImages": ["/assets/mahindrahywa1.png", "/assets/mahindrahywa2.png"],
+      "specifications": {
+        "Power": "280 Hp",
+        "Capacity": "35 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 10
+    },
+    {
+      "id": "fleet14",
+      "name": "CAT 323D3",
+      "image": "/assets/cat2.png",
+      "additionalImages": ["/assets/cat1.png", "/assets/cat.png"],
+      "specifications": {
+        "Power": "152 Hp",
+        "Capacity": "1.2 m³ bucket",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 10
+    }
+  ],
+  "equipments": [
+    {
+      "id": "equip1",
+      "name": "BREAKER",
+      "image": "/assets/tatasigna5525.png",
+      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "specifications": {
+        "Power": "92 Hp",
+        "Capacity": "1 Ton",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 25
+    },
+    {
+      "id": "equip2",
+      "name": "ALTAS DRILLER",
+      "image": "/assets/tatasigna5525.png",
+      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "specifications": {
+        "Power": "310 Hp",
+        "Capacity": "38 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 18
+    },
+    {
+      "id": "equip3",
+      "name": "ALTAS COMPRESSOR",
+      "image": "/assets/tatasigna5525.png",
+      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "specifications": {
+        "Power": "158 Hp",
+        "Capacity": "21 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 30
+    },
+    {
+      "id": "equip4",
+      "name": "Volvo EC210",
+      "image": "/assets/tatasigna5525.png",
+      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasigna5525.png"],
+      "specifications": {
+        "Power": "150 Hp",
+        "Capacity": "21 Tons",
+        "Fuel Type": "Diesel"
+      },
+      "quantity": 22
+    }
+  ],
+  "pageContent": {
+    "fleets": {
+      "title": "Reliable Fleets, Built For Excellence",
+      "tagline": "Powering Your Projects With Precision",
+      "sectionTitle": "A Huge Collection Of Fleets For Every Needs",
+      "description": "Our diverse fleet is well equipped to handle projects of any scale, ensuring efficiency, reliability, and top performance. From heavy-duty machinery to specialized vehicles, we have the right fleet for every challenge.",
+      "backgroundImage": "/assets/truck.jpg"
+    },
+    "equipments": {
+      "title": "Engineering Excellence For Every Project",
+      "tagline": "Tools That Transform Visions Into Reality",
+      "sectionTitle": "Comprehensive Range of Equipment for Every Challenge",
+      "description": "Our extensive range of equipment is built to tackle projects of all sizes, ensuring optimal performance, reliability, and efficiency. From robust heavy-duty machines to specialized tools, we have the right equipment to meet every project's demands.",
+      "backgroundImage": "/assets/loader.jpg"
+    }
+  }
+}
