@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Client from "../components/Client";
 
-// Updated ItemCard component with consistent horizontal layout and original backgrounds
-const ItemCard = ({ item }) => {
+// Updated ItemCard component with "Know more" button navigation
+const ItemCard = ({ item, pageType }) => {
+  const navigate = useNavigate();
   const [mainImage, setMainImage] = useState(item.image);
   const [thumbnails, setThumbnails] = useState([...(item.additionalImages || [])]);
 
@@ -14,6 +15,12 @@ const ItemCard = ({ item }) => {
     newThumbnails[index] = mainImage;
     setThumbnails(newThumbnails);
     setMainImage(thumbnailImg);
+  };
+
+  // Function to navigate to item detail page
+  const handleKnowMoreClick = () => {
+    // Navigate to detail page with item ID and type in the URL
+    navigate(`/${pageType}/${item.id}`, { state: { itemData: item } });
   };
 
   // Filter out specifications that don't have values
@@ -37,7 +44,10 @@ const ItemCard = ({ item }) => {
           </div>
         </div>
         {/* Know more button - smaller on mobile */}
-        <button className="mt-1 sm:mt-2 bg-red-600 text-white px-2 sm:px-4 py-0.5 sm:py-1 text-xs sm:text-sm font-medium">
+        <button 
+          className="mt-1 sm:mt-2 bg-red-600 text-white px-2 sm:px-4 py-0.5 sm:py-1 text-xs sm:text-sm font-medium cursor-pointer hover:bg-red-700 transition-colors"
+          onClick={handleKnowMoreClick}
+        >
           Know more
         </button>
       </div>
@@ -176,14 +186,14 @@ const Fleetandequipment = () => {
           {/* First card in pair - full width on mobile */}
           {pair[0] && (
             <div className={`w-full mb-4 md:mb-0 md:w-${isEvenRow ? '3/5' : '2/5'}`}>
-              <ItemCard item={pair[0]} />
+              <ItemCard item={pair[0]} pageType={pageType} />
             </div>
           )}
          
           {/* Second card in pair (if available) - full width on mobile */}
           {pair[1] && (
             <div className={`w-full md:w-${isEvenRow ? '2/5' : '3/5'}`}>
-              <ItemCard item={pair[1]} />
+              <ItemCard item={pair[1]} pageType={pageType} />
             </div>
           )}
          
@@ -268,6 +278,7 @@ const Fleetandequipment = () => {
           </div>
         </div>
       </div>
+      
       <Client />
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import residental from "../assets/residental.svg";
 import site from "../assets/site.svg";
 import special from "../assets/special.svg";
@@ -72,11 +73,13 @@ const Service = () => {
             </div>
           ))}
 
-          {/* Button Section */}
+          {/* Button Section with Link to services page */}
           <div className="flex items-center justify-center">
-            <button className="bg-red-600 text-white px-8 py-3 text-base font-semibold uppercase hover:bg-red-700 transition duration-300">
-              KNOW MORE
-            </button>
+            <Link to="/services" className="inline-block">
+              <button className="bg-red-600 text-white px-8 py-3 text-base font-semibold uppercase hover:bg-red-700 transition duration-300">
+                KNOW MORE
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import Service from "./components/Service";
 import Client from "./components/Client";
 import Services from "./pages/Services";
 import Fleetandequipment from "./pages/Fleetandequipment";
+import Fleetandequipmentdetail from "./pages/Fleetequipmentdetail";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/fleets" element={<Fleetandequipment />} />
         <Route path="/equipments" element={<Fleetandequipment />} />
+        <Route path="/fleets/:id" element={<Fleetandequipmentdetail/>} />
+        <Route path="/equipments/:id" element={<Fleetandequipmentdetail/>} />
       </Routes>
     </Router>
   );

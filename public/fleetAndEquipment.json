@@ -3,38 +3,159 @@
     {
       "id": "fleet1",
       "name": "TATA SIGNA 5525",
-      "image": "assets/tatasigna5525.png",
-      "additionalImages": ["/assets/tatasigna55251.png", "/assets/tatasigna55252.png"],
+      "image": "/assets/tatasignahwya.png",
+      "additionalImages": [
+        "/assets/tatasigna55252.png",
+        "/assets/tatasigna5525.png"
+      ],
       "specifications": {
         "Power": "250 Hp",
         "Capacity": "55 Tons",
         "Fuel Type": "Diesel"
       },
-      "quantity": 50
+      "quantity": 50,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "Cummins 6.7L 300HP OBD-II"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Capacity",
+          "description": "40000 - 420000 kg"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel",
+          "description": "365 litres"
+        },
+        {
+          "icon": "/assets/safety.svg",
+          "title": "Safety",
+          "description": "ABS, air brakes ergonomic cabin design"
+        }
+      ],
+      "keyFeatures": [
+        "BS6 Emission Compliance",
+        "Advanced Telematics System",
+        "Remote Diagnostics Capability",
+        "Air-Suspended Driver Seat",
+        "Driver Information System",
+        "Fuel Efficiency Coaching"
+      ],
+      "safetyFeatures": [
+        "Advanced ABS with Electronic Brakeforce Distribution",
+        "Hill Start Assist System",
+        "Full Air Brake System with Load Sensing",
+        "GPS & Real-time Fleet Tracking",
+        "Driver Fatigue Alert System",
+        "Reinforced Cabin with Crash Protection"
+      ]
     },
     {
       "id": "fleet2",
       "name": "ASHOK LEYLAND TIP",
       "image": "/assets/ashokleylandtip.png",
-      "additionalImages": ["/assets/ashokleylandtip1.png", "/assets/ashokleylandtip2.png"],
+      "additionalImages": [
+        "/assets/ashokleylandtip1.png",
+        "/assets/ashokleylandtip2.png"
+      ],
       "specifications": {
         "Power": "240 Hp",
         "Capacity": "47 Tons",
         "Fuel Type": "Diesel"
       },
-      "quantity": 42
+      "quantity": 42,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Power",
+          "description": "240 HP H-series engine with high torque output"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Capacity",
+          "description": "47 tons capacity with reinforced tipper body"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel ",
+          "description": "iEGR technology for better fuel economy"
+        },
+        {
+          "icon": "/assets/gradebility.svg",
+          "title": "Gradeability",
+          "description": "36% gradeability for steep incline operations"
+        }
+      ],
+      "keyFeatures": [
+        "Heavy-duty tipper body with wear-resistant steel",
+        "Robust hydraulic system for quick tipping",
+        "Digital driver information system",
+        "Long service intervals for reduced downtime",
+        "Optimized weight distribution for better stability"
+      ],
+      "safetyFeatures": [
+        "Full air dual circuit brakes",
+        "Engine exhaust brake",
+        "Rollover protection system",
+        "LED warning lights",
+        "Automatic fire detection system",
+        "Reinforced bumpers for collision protection"
+      ]
     },
     {
       "id": "fleet3",
       "name": "BHARAT BENZ 5228",
       "image": "/assets/bharatbenz5528.png",
-      "additionalImages": ["/assets/bharatbenz55281.png", "/assets/bharatbenz55282.png"],
+      "additionalImages": [
+        "/assets/bharatbenz55281.png",
+        "/assets/bharatbenz55282.png"
+      ],
       "specifications": {
         "Power": "281 Hp",
         "Capacity": "55 Tons",
         "Fuel Type": "Diesel"
       },
-      "quantity": 40
+      "quantity": 40,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine ",
+          "description": "281 HP OM 926 engine with BlueTec technology"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Capacity",
+          "description": "55 tons GVW for maximum productivity"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel",
+          "description": "BS VI compliant with AdBlue system for cleaner emissions"
+        },
+        {
+          "icon": "/assets/safety.svg",
+          "title": "Safety",
+          "description": "ABS brakes, crash-tested cabin"
+        }
+      ],
+      "keyFeatures": [
+        "Mercedes-Benz derived powertrain technology",
+        "Automated manual transmission option",
+        "Telematics-enabled fleet management",
+        "Reinforced chassis for mining applications",
+        "Extended service intervals of up to 100,000 km"
+      ],
+      "safetyFeatures": [
+        "Electronic Braking System (EBS)",
+        "Hill Hold Assist",
+        "Lane Departure Warning",
+        "Driver fatigue monitoring system",
+        "Proximity sensors with 360° visibility",
+        "Cabin with high-strength steel construction"
+      ]
     },
     {
       "id": "fleet4",
@@ -45,11 +166,46 @@
         "Power": "76 Hp",
         "Torque": "200 Nm",
         "Fuel Type": "Diesel"
-
       },
-      "quantity": 2
-    }
-    ,
+      "quantity": 2,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine ",
+          "description": "76 HP mHawk diesel engine for reliable performance"
+        },
+        {
+          "icon": "/assets/torque.svg",
+          "title": "Torque",
+          "description": "200 Nm torque for excellent pulling power"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel",
+          "description": "16.7 km/l for economical operation"
+        },
+        {
+          "icon": "/assets/safety.svg",
+          "title": "Safety",
+          "description": "ABS, Airbag, Engine Immobilizer"
+        }
+      ],
+      "keyFeatures": [
+        "Micro Hybrid Technology for better fuel efficiency",
+        "Mobile office capability with charging points",
+        "Comfortable seating for long journeys",
+        "Ample storage space for equipment and tools",
+        "Rugged body-on-frame construction"
+      ],
+      "safetyFeatures": [
+        "Dual airbags for front passengers",
+        "ABS with EBD",
+        "Crash protection crumple zones",
+        "Engine immobilizer",
+        "Seat belt reminder system",
+        "Static bending headlamps"
+      ]
+    },
     {
       "id": "fleet5",
       "name": "Wheel Loader",
@@ -60,9 +216,45 @@
         "Capacity": "3.1 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 4
-    }
-    ,
+      "quantity": 4,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "221 HP turbocharged engine for heavy lifting"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Capacity",
+          "description": "Ranges from 0.8 m³ to 10 m, 100+ tons"
+        },
+        {
+          "icon": "/assets/tyres.svg",
+          "title": "Tyres",
+          "description": "Heavy-duty, deep-tread for rough terrains"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Lift Height",
+          "description": "4.2 meters maximum lift height"
+        }
+      ],
+      "keyFeatures": [
+        "Articulated steering for tight turning radius",
+        "Load-sensing hydraulic system",
+        "Automatic power shift transmission",
+        "Adjustable boom height and reach",
+        "Climate-controlled operator cabin"
+      ],
+      "safetyFeatures": [
+        "ROPS/FOPS certified cabin",
+        "Emergency steering system",
+        "Automatic bucket leveling",
+        "Rear-view camera with display",
+        "Fire suppression system",
+        "Operator presence detection system"
+      ]
+    },
     {
       "id": "fleet6",
       "name": "JCB",
@@ -73,98 +265,408 @@
         "Capacity": "1.2 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 4
-    }
-    ,
+      "quantity": 4,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "92 HP JCB Dieselmax engine for versatile performance"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Engine ",
+          "description": "Cummins 6.7L"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Dig Depth",
+          "description": "5.97 meters maximum digging depth"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Lift Capacity",
+          "description": "3,500 kg maximum lift capacity"
+        }
+      ],
+      "keyFeatures": [
+        "4-in-1 bucket for multiple applications",
+        "Advanced Easy Control (AEC) hydraulic system",
+        "Extendable dipper arm for increased reach",
+        "4-wheel drive with equal-sized wheels",
+        "Side-shift capability for precise positioning"
+      ],
+      "safetyFeatures": [
+        "ROPS/FOPS certified cabin",
+        "Stabilizer legs with safety locks",
+        "Boom and dipper safety valves",
+        "360° visibility from operator position",
+        "Emergency lowering valves",
+        "Lockable battery isolator"
+      ]
+    },
     {
       "id": "fleet7",
       "name": "TATA HITACHI 370",
       "image": "/assets/tatahitachi370.png",
-      "additionalImages": ["/assets/tatahitachi3701.png", "/assets/tatahitachi370.png"],
+      "additionalImages": [
+        "/assets/tatahitachi3701.png",
+        "/assets/tatahitachi2101.png"
+      ],
       "specifications": {
         "Power": "274 Hp",
         "Capacity": "2.3 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 8
-    }
-    ,
+      "quantity": 8,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "274 HP Isuzu engine for heavy excavation tasks"
+        },
+        {
+          "icon": "/assets/load.svg",
+          "title": "Bucket Capacity",
+          "description": "2.3 m³ bucket for high-volume excavation"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Operating Weight",
+          "description": "37,000 kg for stability in challenging conditions"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Digging Depth",
+          "description": "7.8 meters maximum digging depth"
+        }
+      ],
+      "keyFeatures": [
+        "TRIAS hydraulic system for fuel efficiency",
+        "Auto-idle and work mode selection",
+        "Reinforced boom and arm for heavy-duty work",
+        "Attachment management system with 10 presets",
+        "Spacious cabin with air suspension seat"
+      ],
+      "safetyFeatures": [
+        "ROPS certified cabin structure",
+        "Anti-burst valves on hydraulic cylinders",
+        "Rear and side-view cameras",
+        "Emergency engine shutdown system",
+        "Swing and travel alarms",
+        "Fire extinguisher and first aid kit"
+      ]
+    },
     {
       "id": "fleet8",
       "name": "TATA HITACHI 220",
       "image": "/assets/tatahitachi220.png",
-      "additionalImages": ["/assets/tatahitachi2201.png", "/assets/tatahitachi2202.png"],
+      "additionalImages": [
+        "/assets/tatahitachi2201.png",
+        "/assets/tatahitachi2202.png"
+      ],
       "specifications": {
         "Power": "148 Hp",
-        "Capacity":"1.2 m³ bucket",
+        "Capacity": "1.2 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 4
-    }
-    ,
+      "quantity": 4,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "148 HP Isuzu engine for efficient excavation"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel ",
+          "description": "400 litres fuel tank"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Operating Weight",
+          "description": "22,000 kg for optimal balance"
+        },
+        {
+          "icon": "/assets/load.svg",
+          "title": "Arm Crowd Force",
+          "description": "102 kN for powerful digging capability"
+        }
+      ],
+      "keyFeatures": [
+        "Optimized hydraulic system for fuel savings",
+        "Multiple working modes for different applications",
+        "Heavy-duty undercarriage with X-frame",
+        "Advanced monitoring system with 7-inch display",
+        "Extended maintenance intervals"
+      ],
+      "safetyFeatures": [
+        "ROPS/OPG Level 1 certified cabin",
+        "Emergency escape hammer",
+        "Hydraulic lockout system",
+        "Travel and swing alarm systems",
+        "Engine overheat protection",
+        "Battery disconnect switch"
+      ]
+    },
     {
       "id": "fleet9",
       "name": "TATA HITACHI 210",
       "image": "/assets/tatahitachi210.png",
-      "additionalImages": ["/assets/tatahitachi210.png", "/assets/tatahitachi210.png"],
+      "additionalImages": [
+        "/assets/tatahitachi2101.png",
+        "/assets/tatahitachi2102.png"
+      ],
       "specifications": {
         "Power": "132 Hp",
         "Capacity": "1.2 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 10
-    }
-    ,
+      "quantity": 10,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "132 HP Isuzu engine for reliable performance"
+        },
+        {
+          "icon": "/assets/load.svg",
+          "title": "Bucket Capacity",
+          "description": "1.2 m³ bucket for versatile excavation tasks"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Operating Weight",
+          "description": "21,000 kg for stability during operation"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Digging Reach",
+          "description": "9.9 meters maximum digging reach"
+        }
+      ],
+      "keyFeatures": [
+        "Fuel-efficient hydraulic system",
+        "Reinforced H-frame undercarriage",
+        "Auto-idle system for reduced fuel consumption",
+        "Boom and arm regeneration system",
+        "Intelligent work mode selection"
+      ],
+      "safetyFeatures": [
+        "ROPS certified cabin",
+        "Rear-view camera with monitor",
+        "Neutral start system",
+        "Emergency engine stop switch",
+        "Anti-slip plates on upper structure",
+        "Swing parking brake"
+      ]
+    },
     {
       "id": "fleet10",
       "name": "KOBELCO 370",
       "image": "/assets/kobelco370.png",
-      "additionalImages": ["/assets/kobelco3701.png", "/assets/kobelco3702.png"],
+      "additionalImages": [
+        "/assets/kobelco3701.png",
+        "/assets/kobelco3702.png"
+      ],
       "specifications": {
         "Power": "270 Hp",
         "Capacity": "2.1 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 2
-    }
-    ,
+      "quantity": 2,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "270 HP Hino engine for powerful excavation"
+        },
+        {
+          "icon": "/assets/load.svg",
+          "title": "Bucket Capacity",
+          "description": "2.1 m³ bucket for high-volume material handling"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Operating Weight",
+          "description": "37,000 kg for maximum stability"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel",
+          "description": "Advanced power control system for 10% fuel savings"
+        }
+      ],
+      "keyFeatures": [
+        "Integrated INDR cooling system",
+        "Three work modes with H-mode for heavy duty",
+        "Heavy-duty boom and arm for mining applications",
+        "Reinforced idler frame and track links",
+        "Intelligent hydraulic system with pressure sensors"
+      ],
+      "safetyFeatures": [
+        "ROPS/FOPS certified cabin",
+        "Cab interference prevention system",
+        "Emergency escape hammer",
+        "Overload warning system",
+        "Engine emergency stop switch",
+        "Swing flashers with audible alarm"
+      ]
+    },
     {
       "id": "fleet11",
       "name": "TATA SIGNA HWYA",
       "image": "/assets/tatasignahwya.png",
-      "additionalImages": ["/assets/tatasigna5525.png", "/assets/tatasignahwya2.png"],
+      "additionalImages": [
+        "/assets/tatasigna5525.png",
+        "/assets/tatasignahwya2.png"
+      ],
       "specifications": {
         "Power": "250 Hp",
         "Capacity": "35 Tons",
         "Fuel Type": "Diesel"
       },
-      "quantity":45
-    }
-    ,
+      "quantity": 45,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine ",
+          "description": "250 HP Cummins engine with high torque output"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Load Capacity",
+          "description": "35 tons payload capacity for efficient haulage"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel Efficiency",
+          "description": "Fuel management system with ECO switch"
+        },
+        {
+          "icon": "/assets/torque.svg",
+          "title": "Torque",
+          "description": "850Nm"
+        }
+      ],
+      "keyFeatures": [
+        "Hub reduction axles for better torque multiplication",
+        "Tata Fleetman telematics system",
+        "Air-suspended driver seat for comfort",
+        "High-capacity alternator for electrical reliability",
+        "Unitized wheel bearings for extended life"
+      ],
+      "safetyFeatures": [
+        "Anti-lock Braking System (ABS)",
+        "Electronic Stability Program (ESP)",
+        "Hill Start Aid",
+        "Load-sensing proportioning valve",
+        "Tilt and telescopic steering adjustment",
+        "Engine brake system"
+      ]
+    },
     {
       "id": "fleet12",
       "name": "Mahindra CAMPER",
       "image": "/assets/mahindracamper.png",
-      "additionalImages": ["/assets/mahindracamper2.png", "/assets/mahindracamper1.png"],
+      "additionalImages": [
+        "/assets/mahindracamper2.png",
+        "/assets/mahindracamper1.png"
+      ],
       "specifications": {
         "Power": "75 Hp",
         "Fuel Type": "Diesel",
         "Torque": "200 Nm"
-
       },
-      "quantity": 5
+      "quantity": 5,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine Power",
+          "description": "75 HP mDI engine for reliable performance"
+        },
+        {
+          "icon": "/assets/torque.svg",
+          "title": "Torque",
+          "description": "200 Nm torque for excellent load carrying"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel Efficiency",
+          "description": "15.5 km/l for economical operation"
+        },
+        {
+          "icon": "/assets/tyres.svg",
+          "title": "Wheelbase",
+          "description": "3014 mm for stable handling"
+        }
+      ],
+      "keyFeatures": [
+        "Dual cabin configuration for crew transport",
+        "Cargo box with drop sides for versatile loading",
+        "Power steering for easy maneuverability",
+        "Heavy-duty leaf spring suspension",
+        "Mobile charging points for field operations"
+      ],
+      "safetyFeatures": [
+        "Collapsible steering column",
+        "Side impact beams",
+        "Engine immobilizer",
+        "Seat belt reminder",
+        "High-mount stop lamp",
+        "Child safety locks"
+      ]
     },
     {
       "id": "fleet13",
       "name": "MAHINDRA HYWA",
       "image": "/assets/mahindrahywa.png",
-      "additionalImages": ["/assets/mahindrahywa1.png", "/assets/mahindrahywa2.png"],
+      "additionalImages": [
+        "/assets/mahindrahywa1.png",
+        "/assets/mahindrahywa2.png"
+      ],
       "specifications": {
         "Power": "280 Hp",
         "Capacity": "35 Tons",
         "Fuel Type": "Diesel"
       },
-      "quantity": 10
+      "quantity": 10,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "280 HP mPOWER engine for heavy-duty applications"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Load Capacity",
+          "description": "35 tons payload capacity for mining operations"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel Efficiency",
+          "description": "Fuel Smart technology for optimal consumption"
+        },
+        {
+          "icon": "/assets/torque.svg",
+          "title": "Torque",
+          "description": "1050 Nm"
+        }
+      ],
+      "keyFeatures": [
+        "Heavy-duty bogie suspension",
+        "Multi-mode fuel economy switch",
+        "MTBD (Mahindra Truck and Bus Division) telematics",
+        "Adjustable steering column",
+        "Cruise control for highway operations"
+      ],
+      "safetyFeatures": [
+        "Full air dual circuit brakes",
+        "Anti-lock Braking System (ABS)",
+        "Engine exhaust brake",
+        "Hill Hold Assist",
+        "Reverse camera with proximity sensors",
+        "Cabin with high-strength steel construction"
+      ]
     },
     {
       "id": "fleet14",
@@ -176,7 +678,44 @@
         "Capacity": "1.2 m³ bucket",
         "Fuel Type": "Diesel"
       },
-      "quantity": 10
+      "quantity": 10,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine",
+          "description": "152 HP Cat C7.1 engine with ACERT technology"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Bucket Capacity",
+          "description": "1.2 m³ bucket for precise excavation"
+        },
+        {
+          "icon": "/assets/load.svg",
+          "title": "Operating Weight",
+          "description": "22,900 kg for optimal stability"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Maximum Reach",
+          "description": "9.6 meters ground level reach"
+        }
+      ],
+      "keyFeatures": [
+        "Advanced hydraulic system with electronic control",
+        "Smart mode operation for automatic engine and hydraulic power",
+        "Product Link telematics for remote monitoring",
+        "Boom and stick regeneration circuits",
+        "Automatic engine speed control"
+      ],
+      "safetyFeatures": [
+        "ROPS certified cabin",
+        "Ground-level daily maintenance points",
+        "Anti-skid punch plate surfaces",
+        "Rear and right-side cameras",
+        "Neutral start lever lock",
+        "Emergency stop switch"
+      ]
     }
   ],
   "equipments": [
@@ -186,10 +725,47 @@
       "image": "/assets/breaker.png",
       "additionalImages": ["/assets/breaker1.png", "/assets/breaker2.png"],
       "specifications": {
-       "Blow-rate" : "200 – 1,500 BPM",
-       "Impact energy" : "250 – 10,000 J"
+        "Blow-rate": "200 – 1,500 BPM",
+        "Impact energy": "250 – 10,000 J"
       },
-      "quantity": 5
+      "quantity": 5,
+      "specIcons": [
+        {
+          "icon": "/assets/hammer.svg",
+          "title": "Impact Rate",
+          "description": "200-1,500 blows per minute for efficient breaking"
+        },
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Energy",
+          "description": "250-10,000 joules for powerful performance"
+        },
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Operating Weight",
+          "description": "1,500 kg for stability during operation"
+        },
+        {
+          "icon": "/assets/water.svg",
+          "title": "Hydraulic Flow",
+          "description": "120-180 l/min optimal flow rate"
+        }
+      ],
+      "keyFeatures": [
+        "Auto-greasing system for reduced maintenance",
+        "Noise and vibration dampening technology",
+        "Blank firing protection system",
+        "Variable speed control for different materials",
+        "Quick-change mounting system"
+      ],
+      "safetyFeatures": [
+        "Dust suppression system",
+        "Overheating protection",
+        "Pressure relief valve",
+        "Sound insulation package",
+        "Anti-slip handling surfaces",
+        "Emergency shutdown capability"
+      ]
     },
     {
       "id": "equip2",
@@ -200,18 +776,95 @@
         "Impact power": "14kw",
         "Impact frequency": "45Hz"
       },
-      "quantity": 5
+      "quantity": 5,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Impact Power",
+          "description": "14 kW power output for efficient drilling"
+        },
+        {
+          "icon": "/assets/frequency.svg",
+          "title": "Impact Frequency",
+          "description": "45 Hz frequency for optimal penetration rate"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Drilling Depth",
+          "description": "Up to 25 meters drilling capability"
+        },
+        {
+          "icon": "/assets/tyres.svg",
+          "title": "Hole Diameter",
+          "description": "76-115 mm diameter range"
+        }
+      ],
+      "keyFeatures": [
+        "Dust collection system for cleaner operation",
+        "Automated rod handling system",
+        "Hydraulic positioning for precise setup",
+        "Digital control panel with diagnostic capabilities",
+        "Adjustable impact energy for different materials"
+      ],
+      "safetyFeatures": [
+        "Emergency stop buttons at multiple locations",
+        "Protective cage around moving parts",
+        "Anti-jamming system",
+        "Noise reduction package",
+        "Stabilizer legs with safety locks",
+        "Operator presence detection"
+      ]
     },
     {
       "id": "equip3",
       "name": "ALTAS COMPRESSOR",
       "image": "/assets/compressor.png",
-      "additionalImages": ["/assets/compressor.png", "/assets/compressor.png"],
+      "additionalImages": [
+        "/assets/compressor1.png",
+        "/assets/compressor2.png"
+      ],
       "specifications": {
         "Engine power": "56.5kw",
         "Pressure": "7 bar"
       },
-      "quantity": 5
+      "quantity": 5,
+      "specIcons": [
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Engine ",
+          "description": "56.5 kW diesel engine for reliable operation"
+        },
+        {
+          "icon": "/assets/gradebility.svg",
+          "title": "Working Pressure",
+          "description": "7 bar pressure for versatile applications"
+        },
+        {
+          "icon": "/assets/air.svg",
+          "title": "Free Air Delivery",
+          "description": "5.0 m³/min air flow capacity"
+        },
+        {
+          "icon": "/assets/fuel.svg",
+          "title": "Fuel Efficiency",
+          "description": "10 hours runtime on full tank"
+        }
+      ],
+      "keyFeatures": [
+        "Fully automatic operation with electronic controller",
+        "Sound-attenuated enclosure for quiet operation",
+        "Heavy-duty air filters for dusty environments",
+        "Multiple air outlets for simultaneous tool operation",
+        "Integrated aftercooler and water separator"
+      ],
+      "safetyFeatures": [
+        "Automatic shutdown for high temperature",
+        "Low oil pressure protection",
+        "Air pressure safety valve",
+        "Emergency stop button",
+        "Battery isolator switch",
+        "Anti-theft protection system"
+      ]
     },
     {
       "id": "equip4",
@@ -222,7 +875,44 @@
         "Metric Ton per day": "4000",
         "Metric ton per annual": "36 Lakh"
       },
-      "quantity": 6
+      "quantity": 6,
+      "specIcons": [
+        {
+          "icon": "/assets/capacity.svg",
+          "title": "Production Capacity",
+          "description": "4,000 metric tons per day crushing capacity"
+        },
+        {
+          "icon": "/assets/gradebility.svg",
+          "title": "Annual Output",
+          "description": "36 lakh metric tons annual production"
+        },
+        {
+          "icon": "/assets/energy.svg",
+          "title": "Power System",
+          "description": "500 HP electric motor with soft start"
+        },
+        {
+          "icon": "/assets/height.svg",
+          "title": "Feed Size",
+          "description": "Up to 600 mm input material size"
+        }
+      ],
+      "keyFeatures": [
+        "Hydraulic adjustment system for output size control",
+        "Automated lubrication system",
+        "Heavy-duty manganese steel jaw plates",
+        "Vibrating feeder with grizzly section",
+        "PLC control system with remote monitoring"
+      ],
+      "safetyFeatures": [
+        "Emergency stop system with pull cords",
+        "Overload protection system",
+        "Dust suppression water sprays",
+        "Safety guards on all moving parts",
+        "Lockout/tagout capability for maintenance",
+        "Warning sirens for startup sequence"
+      ]
     }
   ],
   "pageContent": {
