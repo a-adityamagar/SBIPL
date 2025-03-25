@@ -3,7 +3,7 @@
     {
       "name": "Larsen & Toubro",
       "logo": "/assets/larsenandtourbo.png",
-      "description": "",
+      "description": "Larsen & Toubro is a renowned Indian multinational corporation specializing in EPC Projects, Hi-Tech Manufacturing, and Services with operations spanning over 50 countries. For more than eight decades, L&T has maintained industry leadership through its customer-centric approach and unwavering commitment to excellence across all its business verticals.",
       "projects": [
         "GMR Aerocity, Terminal-3, IGI Airport, New Delhi",
         "Pkg - 4, Dwarka Expressway",
@@ -16,13 +16,13 @@
     {
       "name": "GR Infraprojects Ltd.",
       "logo": "/assets/grinfra.png",
-      "description": "",
+      "description": "With nearly three decades of experience, G R Infraprojects Limited has emerged as one of the fastest-growing entities in India's infrastructure sector. The company's success is driven by its 11,000+ dedicated professionals, cutting-edge assets, advanced technology, and round-the-clock project execution capabilities, ensuring timely delivery with the highest standards of quality, safety, and governance.",
       "projects": ["Panipat to Sharanpur Highway Project"]
     },
     {
       "name": "Gawar Construction Ltd",
       "logo": "/assets/gawar.png",
-      "description": "",
+      "description": "Gawar Construction Limited (GCL) is at the vanguard of India's infrastructure development, specializing in constructing expressways, highways, tunnels, and bridges. The company has established itself as an industry leader with an impressive portfolio of successfully completed projects for government entities including NHAI, MoRT&H, MES, and CPWD.",
       "projects": [
         "Jhajjar to Sonipat Highway Project",
         "Vasant Kunj, New Delhi",
@@ -33,7 +33,7 @@
     {
       "name": "HG Infra Engineering Limited",
       "logo": "/assets/hginfra.png",
-      "description": "",
+      "description": "H.G. Infra Engineering Limited (HGIEL) brings over 21 years of specialized expertise in roads and highways infrastructure development. Founded by construction veteran Shri Hodal Singh who has 45 years of industry experience, the company has evolved into a market leader under the strategic guidance of Mr. Harendra Singh, Chairman and Managing Director.",
       "projects": [
         "Development of 6L UER III [Package - I] (NH-1 Near Bakoli till Karala Kanjhawala Road)"
       ]
@@ -41,7 +41,7 @@
     {
       "name": "KCC Buildcon",
       "logo": "/assets/kccbuildcon.png",
-      "description": "",
+      "description": "KCC Buildcon Private Limited is an ISO 9001:2015 certified construction company incorporated in 2009 with ROC (Delhi and Haryana). The company was established to take over the operations of M/S Kundu Construction Co., a partnership firm founded in 1999, continuing its legacy of quality construction services.",
       "projects": [
         "Delhi Amritsar Katra Expressway from Jussur Kheri on KMP Expressway to Rohtak Panipat road",
         "Delhi Amritsar Katra Expressway from Jind-Panipat road to Jind Karnal road"
@@ -50,7 +50,7 @@
     {
       "name": "CDS",
       "logo": "/assets/cds.png",
-      "description": "",
+      "description": "CDS Construction Services is a locally owned construction service provider specializing in the Design-Build project delivery method, establishing single-contract solutions for architectural, engineering, and construction services. With over 36 years of industry experience, CDS serves clients ranging from major contractors on multimillion-dollar projects to homeowners seeking residential retrofits, backed by knowledgeable staff, prompt delivery, and comprehensive local inventory.",
       "projects": [
         "Delhi Amritsar Katra Expressway from Rohtak Panipat road to Jind Panipat road",
         "Delhi Amritsar Katra Expressway from Ambala Kaithal Hissar road to Patiala"
@@ -59,37 +59,37 @@
     {
       "name": "Varaha Infra Limited",
       "logo": "/assets/varaha.png",
-      "description": "",
+      "description": "Based in Jodhpur, Rajasthan, Varaha Infra Ltd. is a progressive construction and engineering company striving to become a leading one-stop solution provider in infrastructure development. The company focuses on transforming traditional infrastructure systems through innovative approaches, having successfully completed numerous road construction projects across Rajasthan and Gujarat.",
       "projects": ["Road Project, Rajasthan & Gujarat"]
     },
     {
       "name": "GMR Projects Private Limited",
       "logo": "/assets/gmr.png",
-      "description": "",
+      "description": "Founded in 1978 by G M Rao with a modest jute mill, GMR Group has evolved into one of India's fastest-growing infrastructure enterprises. Headquartered in New Delhi, the Group specializes in high-growth sectors including Airports, Energy, Transportation, and Urban Infrastructure. With over four decades of experience and effective utilization of the Public-Private Partnership model, GMR Group is uniquely positioned to deliver state-of-the-art infrastructure projects both domestically and internationally.",
       "projects": ["DIAL Project, IGI Airport, New Delhi"]
     },
     {
       "name": "Shapoorji & Pallonji",
       "logo": "/assets/shapoorji.png",
-      "description": "",
+      "description": "Shapoorji Pallonji and Company Pvt. Ltd. is a global diversified organization comprising 15 major companies. With operations in over 40 countries and a workforce exceeding 35,000 professionals, the company delivers comprehensive solutions across six business segments: engineering & construction, infrastructure, real estate, water, energy, and financial services, with a strong focus on sustainable development while creating iconic landmarks worldwide.",
       "projects": ["DLF Site, Gurgaon"]
     },
     {
       "name": "Jaypee Associates Limited",
       "logo": "/assets/jaypee.png",
-      "description": "",
+      "description": "The Jaypee Group has established itself as a diversified infrastructure conglomerate in India over the past five decades, known for transforming challenges into opportunities. The Group's extensive portfolio spans Engineering & Construction, Cement, Power, Real Estate, Expressways, Fertilizer, Hospitality, Healthcare, Sports, Information Technology, and not-for-profit Education initiatives, maintaining leadership across its diverse business verticals.",
       "projects": ["Yamuna Expressway Project, UP"]
     },
     {
       "name": "Unity Infra Project Limited",
       "logo": "/assets/unityinfra.png",
-      "description": "",
+      "description": "Founded in 1979 by Shri K.K. Avarsekar and associates, Mumbai-based Unity Infraprojects Limited (UIL) specializes in construction and allied activities across four key verticals: buildings and housing, transportation, water supply, and irrigation. The company has earned industry credibility through its quick turnaround times, on-budget deliveries, organizational strength, and financial stability, all while maintaining international standards as evidenced by its ISO 9001:2008, ISO 14001:2004, and OHSAS 18001:2007 certifications.",
       "projects": ["Road Project, Haryana"]
     },
     {
       "name": "Lafarge Aggregate & Concrete Pvt. Ltd",
-      "logo": "/assets/lafarage.png",
-      "description": "",
+      "logo": "/assets/lafarge.png",
+      "description": "Lafarge Canada stands as the country's largest provider of innovative and sustainable building solutions, offering a comprehensive range of products including aggregates, cement, ready mix and precast concrete, asphalt, paving, and road and civil construction services. With over 7,500 employees across 400 sites nationwide, Lafarge operates as an affiliate of Holcim, driven by the Group's mission to foster progress for both people and the planet.",
       "projects": [
         "Construction Site, Noida & Gurgaon",
         "Operation & Maintenance of Crushing Plant, Rajasthan"
@@ -98,31 +98,33 @@
     {
       "name": "Urban Eco Infra Pvt. Limited",
       "logo": "/assets/urbaninfra.png",
-      "description": "",
+      "description": "Established in 2018 by Mrs. Mamta Shah and Mr. Vinod Shah, Urban Infra Group has become a key player in the PR and Media industry. Based in New Delhi, the company specializes in developing transformative communication strategies for railways, metros, transportation, and urban infrastructure sectors. With a team of experienced professionals, Urban Infra Group leverages its extensive expertise in public relations and corporate communications to deliver tailored solutions that bridge the gap between organizations and their stakeholders.",
       "projects": ["Construction Site, Gurgaon"]
     },
     {
       "name": "Ansal Housing & Construction Ltd",
       "logo": "/assets/ansal.png",
-      "description": "",
+      "description": "Ansal Housing Limited is a publicly listed construction and housing company incorporated on October 22, 1983. Registered with ROC Delhi (registration number 16821), the company continues to be an active player in the residential and commercial construction sector, developing quality housing and infrastructure projects.",
       "projects": ["Construction Site, Gurgaon"]
     },
     {
       "name": "Ahluwalia Contracts (India) Ltd",
-      "logo": "/assets/ahluwalia.png",
-      "description": "",
+      "logo": "/assets/ahuluwalia.png",
+      "description": "With a rich legacy spanning over five decades in both domestic and international construction markets, Ahluwalia Contracts (India) Ltd has established itself as one of India's largest civil contractors. The company has demonstrated exceptional expertise in executing complex and challenging infrastructure projects across the country, making significant contributions to national development through its commitment to excellence and quality construction.",
       "projects": ["Delhi (NCR) Site"]
     },
     {
       "name": "NKC",
-      "logo": null,
+      "logo": "/assets/nkc.png",
+      "description": "Since its inception on July 14, 2003, NKC Projects Private Limited has grown into a leading infrastructure construction company specializing in roads, highways, expressways, bridges, flyovers, industrial complexes, and multi-storied buildings. The ISO 9001:2015 certified company has built a strong reputation for timely project completion and client satisfaction, earning the trust of major organizations including NHAI, IRCON International Ltd., IL & FS Transportation Networks Ltd., HSRDC, and various state PWDs for high-value EPC turnkey projects, including World Bank funded initiatives.",
       "projects": [
         "Delhi Amritsar Katra Expressway from Jind Karnal road to Ambala Kaithal Hissar road"
       ]
     },
     {
       "name": "J. Kumar Infraprojects Ltd.",
-      "logo": null,
+      "logo": "/assets/jkumar.png",
+      "description": "Founded in 1980 by Mr. Jagdishkumar M. Gupta, J. Kumar Infraprojects Limited has established itself as a premier infrastructure company in India. The company has developed specialized expertise in various construction techniques and successfully executed numerous challenging projects. Their core competencies include building complex infrastructure such as underground and elevated metro systems, irrigation projects, diaphragm walls, tunneling, and creek and river structures.",
       "projects": ["Dwarka Expressway Projects"]
     },
     {
