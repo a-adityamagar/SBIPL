@@ -149,11 +149,6 @@ const Services = () => {
             Vision Live
           </h1>
         </div>
-
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-10 sm:bottom-20 animate-bounce text-white text-2xl sm:text-4xl">
-          ⌄
-        </div>
       </div>
 
       {/* Equipment Showcase Section */}

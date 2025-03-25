@@ -150,10 +150,6 @@ const Fleetandequipmentdetail = () => {
           </h1>
         </div>
 
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 animate-bounce text-white text-xl sm:text-2xl md:text-3xl">
-          ⌄
-        </div>
       </div>
 
       {/* Item Detail Content */}

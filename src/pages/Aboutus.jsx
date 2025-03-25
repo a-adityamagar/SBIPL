@@ -9,11 +9,29 @@ import building from "../assets/building.jpg";
 import Client from "../components/Client";
 
 const Aboutus = () => {
-  const [isSwapped, setIsSwapped] = useState(false);
+  const [isSwapped, setIsSwapped] = useState(true); // Start with Surendra Pal active (swapped)
   const [rightSideHeight, setRightSideHeight] = useState(0);
   const rightSideRef = useRef(null);
   const [missionContentHeight, setMissionContentHeight] = useState(0);
   const missionContentRef = useRef(null);
+ 
+  // Counter state and refs
+  const statsRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [counts, setCounts] = useState({
+    locations: 0,
+    machines: 0,
+    projects: 0,
+    clients: 0
+  });
+
+  // Final values for the counters
+  const finalCounts = {
+    locations: 3,
+    machines: 50,
+    projects: 30,
+    clients: 20
+  };
 
   const togglePositions = () => {
     setIsSwapped(!isSwapped);
@@ -50,15 +68,68 @@ const Aboutus = () => {
     };
   }, [isSwapped]); // Re-run when isSwapped changes
 
+  // Counter animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  // Counter animation effect
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const duration = 2000;
+    const steps = 60;
+    const stepTime = duration / steps;
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep += 1;
+      const progress = Math.min(currentStep / steps, 1);
+
+      setCounts({
+        locations: Math.floor(progress * finalCounts.locations),
+        machines: Math.floor(progress * finalCounts.machines),
+        projects: Math.floor(progress * finalCounts.projects),
+        clients: Math.floor(progress * finalCounts.clients)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCounts(finalCounts);
+      }
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [isVisible]);
+
   // Define board members data
   const boardMembers = [
     {
       name: "SURAMVEER",
+      position: "GMS",
       image: suramveer,
       quote: "I am honored to address SBIPL Ltd., a leader in the construction industry. Our journey has been one of growth, challenges, and success. With a dedicated team and a shared vision, we remain committed to innovation and excellence.",
     },
     {
       name: "SURENDRA PAL",
+      position: "Director",
       image: surendra,
       quote: "At SBIPL, we believe in setting new industry standards through innovation and quality workmanship. Our team's dedication and strategic planning have enabled us to deliver exceptional results across all our projects.",
     }
@@ -87,10 +158,6 @@ const Aboutus = () => {
           </h1>
         </div>
        
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-10 sm:bottom-20 animate-bounce text-white text-2xl sm:text-4xl">
-          ⌄
-        </div>
       </div>
      
       {/* About Us */}
@@ -117,7 +184,7 @@ const Aboutus = () => {
               />
             </div>
           </div>
-        
+       
           <div className="flex flex-col md:flex-row">
             <div className="md:w-2/5 order-last md:order-first h-48 sm:h-64 md:h-80 lg:h-96 mt-4 md:mt-0">
               <img
@@ -153,7 +220,7 @@ const Aboutus = () => {
             <div className="h-full">
               <div
                 className="rounded-lg overflow-hidden h-full"
-                style={{ 
+                style={{
                   height: rightSideHeight > 0 && window.innerWidth >= 768 ? `${rightSideHeight}px` : 'auto'
                 }}
               >
@@ -173,10 +240,12 @@ const Aboutus = () => {
                 </p>
               </div>
              
-            
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 text-center flex-grow-0">{leftMember.name}</h3>
+           
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 text-center flex-grow-0">
+                {leftMember.name} <span className="text-lg sm:text-xl md:text-2xl ml-1">- {leftMember.position}</span>
+              </h3>
               <div className="h-0.5 bg-red-600 w-full mt-1 mb-2 sm:mb-4 flex-grow-0"></div>
-            
+           
               <div
                 className="cursor-pointer rounded-lg overflow-hidden relative transition-transform duration-300 flex-grow h-48 sm:h-60 md:h-72"
                 onClick={togglePositions}
@@ -196,7 +265,7 @@ const Aboutus = () => {
                  
                   <div>
                     <p className="text-white text-base sm:text-lg md:text-2xl font-bold uppercase tracking-wider drop-shadow-md">
-                      {rightMember.name}
+                      {rightMember.name} <span className="text-sm sm:text-base md:text-xl ml-1">({rightMember.position})</span>
                     </p>
                   </div>
                 </div>
@@ -206,6 +275,31 @@ const Aboutus = () => {
         </div>  
       </section>
      
+      {/* Statistics Section */}
+      <div
+        ref={statsRef}
+        className="bg-red-600 text-white w-full py-4 md:py-16"
+      >
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center px-4">
+          <div className="flex flex-col py-3">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.locations}</h3>
+            <p className="text-sm sm:text-base md:text-lg">Locations</p>
+          </div>
+          <div className="flex flex-col py-3">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.machines}+</h3>
+            <p className="text-sm sm:text-base md:text-lg">Machines</p>
+          </div>
+          <div className="flex flex-col py-3">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.projects}+</h3>
+            <p className="text-sm sm:text-base md:text-lg">Projects Completed</p>
+          </div>
+          <div className="flex flex-col py-3">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.clients}+</h3>
+            <p className="text-sm sm:text-base md:text-lg">Satisfied Clients</p>
+          </div>
+        </div>
+      </div>
+     
       {/* Our Mission Section */}
       <section className="py-8 sm:py-12 md:py-16 px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -213,7 +307,7 @@ const Aboutus = () => {
            
             <div className="md:pr-8" ref={missionContentRef}>
               <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4 text-gray-800">OUR MISSION</h2>
-            
+           
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-6 text-red-600 tracking-wide sm:tracking-wider leading-tight">
                 We Aim to Build a<br />Better World
               </h3>
@@ -224,7 +318,7 @@ const Aboutus = () => {
                   customer satisfaction. We aim to deliver globally competitive services
                   while continuously adapting to evolving industry standards.
                 </p>
-            
+           
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose tracking-wide sm:tracking-wider">
                   With a dedicated and skilled team, we strive for continuous improvement,
                   ensuring high-quality service and unwavering commitment. Our goal is to
@@ -238,7 +332,7 @@ const Aboutus = () => {
             <div className="mt-4 md:mt-0">
               <div
                 className="overflow-hidden shadow-lg"
-                style={{ 
+                style={{
                   height: missionContentHeight > 0 && window.innerWidth >= 768 ? `${missionContentHeight}px` : '250px'
                 }}
               >
@@ -252,10 +346,11 @@ const Aboutus = () => {
           </div>
         </div>
       </section>
-      
+     
       <Client/>
     </div>
   );
 };
 
 export default Aboutus;
+

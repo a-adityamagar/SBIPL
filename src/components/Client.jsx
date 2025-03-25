@@ -1,52 +1,27 @@
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
-// Memoize the map component 
-const MapComponent = memo(({ selectedLocation, showInfoWindow, setShowInfoWindow }) => {
-  const mapContainerStyle = {
-    width: '100%',
-    height: '100%',
-    borderRadius: '0.375rem'
-  };
-
-
-  const mapOptions = {
-    styles: [
-      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
-      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-    ],
-  };
+// Memoize the map component
+const MapComponent = memo(({ selectedLocation }) => {
+  // Create the Google Maps embed URL with the selected location
+  const mapEmbedUrl = `https://maps.google.com/maps?width=100%25&height=600&hl=en&q=${encodeURIComponent(selectedLocation.label)}&t=&z=14&ie=UTF8&iwloc=B&output=embed`;
 
   return (
-    <GoogleMap
-      mapContainerStyle={mapContainerStyle}
-      center={selectedLocation}
-      zoom={12}
-      options={mapOptions}
-    >
-      <Marker
-        position={selectedLocation}
-        icon={{
-          url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png"
-        }}
+    <div className="h-full w-full">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        frameBorder="0" 
+        scrolling="no" 
+        marginHeight="0" 
+        marginWidth="0" 
+        src={mapEmbedUrl}
+        title="Google Maps"
+        className="rounded-md"
       />
-      
-      {showInfoWindow && (
-        <InfoWindow
-          position={selectedLocation}
-          onCloseClick={() => setShowInfoWindow(false)}
-        >
-          <div className="bg-white p-2 rounded text-black text-sm max-w-xs">
-            <p>{selectedLocation.label}</p>
-          </div>
-        </InfoWindow>
-      )}
-    </GoogleMap>
+    </div>
   );
 });
-
 
 const LocationItem = memo(({ icon, text, onClick }) => (
   <div
@@ -57,7 +32,6 @@ const LocationItem = memo(({ icon, text, onClick }) => (
     <p className="text-sm">{text}</p>
   </div>
 ));
-
 
 const LocationIcon = memo(() => (
   <svg className="h-5 w-5 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -72,7 +46,6 @@ const EmailIcon = memo(() => (
   </svg>
 ));
 
-
 const PhoneIcon = memo(() => (
   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -80,32 +53,31 @@ const PhoneIcon = memo(() => (
 ));
 
 const Client = () => {
-  const [selectedLocation, setSelectedLocation] = useState({
-    lat: 28.6139,
-    lng: 77.2090,
-    label: 'Default'
-  });
- 
-  const [showInfoWindow, setShowInfoWindow] = useState(false);
-  const [mapLoaded, setMapLoaded] = useState(false);
-
-  // Pre-define locations 
+  // Pre-define locations
   const locations = {
-    mines: { lat: 28.4089, lng: 76.9606, label: "MINES ADDRESS: PLOT NO.-2, VILLAGE- KAALYANA, DISTT CHARKHI DADRI, HARYANA" },
-    registered: { lat: 28.5823, lng: 77.0500, label: "REGISTERED ADDRESS: FLAT NO A-01, GOLF VIEW APARTMENT, PLOT NO. 04, SECTOR - 19B, DWARKA, NEW DELHI-110075" },
-    corporate: { lat: 28.4089, lng: 76.9606, label: "CORPORATE OFFICE: SHOP NO. 164, NEW ANAJ MANDI, CHARKHI DADRI, HARYANA - 127306" }
+    mines: { 
+      lat: 28.4089, 
+      lng: 76.9606, 
+      label: "MINES ADDRESS: PLOT NO.-2, VILLAGE- KAALYANA, DISTT CHARKHI DADRI, HARYANA" 
+    },
+    registered: { 
+      lat: 28.5823, 
+      lng: 77.0500, 
+      label: "REGISTERED ADDRESS: FLAT NO A-01, GOLF VIEW APARTMENT, PLOT NO. 04, SECTOR - 19B, DWARKA, NEW DELHI-110075" 
+    },
+    corporate: { 
+      lat: 28.4089, 
+      lng: 76.9606, 
+      label: "CORPORATE OFFICE: SHOP NO. 164, NEW ANAJ MANDI, CHARKHI DADRI, HARYANA - 127306" 
+    }
   };
 
-  // Memoize location 
+  const [selectedLocation, setSelectedLocation] = useState(locations.registered);
+
+  // Memoize location
   const handleLocationClick = useCallback((locationType) => {
     setSelectedLocation(locations[locationType]);
-    setShowInfoWindow(true);
   }, [locations]);
-
-  // Handle map load event
-  const handleMapLoad = useCallback(() => {
-    setMapLoaded(true);
-  }, []);
 
   return (
     <div className="bg-black text-white py-6 px-4 md:px-8 lg:px-12">
@@ -119,19 +91,19 @@ const Client = () => {
          
           {/* Location Information */}
           <div className="space-y-4">
-            <LocationItem 
+            <LocationItem
               icon={<LocationIcon />}
               text="MINES ADDRESS: PLOT NO.-2, VILLAGE- KAALYANA, DISTT CHARKHI DADRI, HARYANA"
               onClick={() => handleLocationClick('mines')}
             />
-            
-            <LocationItem 
+           
+            <LocationItem
               icon={<LocationIcon />}
               text="REGISTERED ADDRESS: FLAT NO A-01, GOLF VIEW APARTMENT, PLOT NO. 04, SECTOR - 19B, DWARKA, NEW DELHI-110075"
               onClick={() => handleLocationClick('registered')}
             />
-            
-            <LocationItem 
+           
+            <LocationItem
               icon={<LocationIcon />}
               text="CORPORATE OFFICE: SHOP NO. 164, NEW ANAJ MANDI, CHARKHI DADRI, HARYANA - 127306"
               onClick={() => handleLocationClick('corporate')}
@@ -151,7 +123,7 @@ const Client = () => {
             <div className="pt-3">
               <a href="mailto:sbprojectslimited@gmail.com" className="flex items-center space-x-2 hover:text-red-400 transition-colors duration-200">
                 <EmailIcon />
-                <span>sbprojectslimited@gmail.com</span>
+                <span>sbiplprojectslimited@gmail.com</span>
               </a>
              
               <a href="tel:+919891029766" className="flex items-center space-x-2 mt-3 hover:text-red-400 transition-colors duration-200">
@@ -166,22 +138,7 @@ const Client = () => {
         <div className="lg:col-span-1">
           <h2 className="text-2xl font-bold text-red-600 mb-4">Google Map</h2>
           <div className="h-64 w-full rounded-md overflow-hidden">
-            {/* Conditionally render the map to improve initial load time */}
-            <LoadScript 
-              googleMapsApiKey="AIzaSyCuHfcAPan3paHgDfaJ-UPDLgcmGcBnpvE"
-              onLoad={handleMapLoad}
-              loadingElement={
-                <div className="h-full w-full flex items-center justify-center bg-gray-800">
-                  <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-red-600"></div>
-                </div>
-              }
-            >
-              <MapComponent 
-                selectedLocation={selectedLocation}
-                showInfoWindow={showInfoWindow}
-                setShowInfoWindow={setShowInfoWindow}
-              />
-            </LoadScript>
+            <MapComponent selectedLocation={selectedLocation} />
           </div>
         </div>
       </div>

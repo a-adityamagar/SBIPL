@@ -1,7 +1,7 @@
 {
   "fleets": [
     {
-      "id": "fleet1",
+      "id": "fleet",
       "name": "TATA SIGNA 5525",
       "image": "/assets/tatasignahwya.png",
       "additionalImages": [
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "id": "fleet2",
+      "id": "fleet",
       "name": "ASHOK LEYLAND TIP",
       "image": "/assets/ashokleylandtip.png",
       "additionalImages": [
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "id": "fleet3",
+      "id": "fleet",
       "name": "BHARAT BENZ 5228",
       "image": "/assets/bharatbenz5528.png",
       "additionalImages": [
@@ -158,7 +158,7 @@
       ]
     },
     {
-      "id": "fleet4",
+      "id": "fleet",
       "name": "MM BOLERO",
       "image": "/assets/mmbolero.png",
       "additionalImages": ["/assets/mmbolero2.png", "/assets/mmbolero1.png"],
@@ -207,7 +207,7 @@
       ]
     },
     {
-      "id": "fleet5",
+      "id": "fleet",
       "name": "Wheel Loader",
       "image": "/assets/loader.png",
       "additionalImages": ["/assets/loader1.png", "/assets/loader2.png"],
@@ -256,7 +256,7 @@
       ]
     },
     {
-      "id": "fleet6",
+      "id": "fleet",
       "name": "JCB",
       "image": "/assets/jcb.png",
       "additionalImages": ["/assets/jcb1.png", "/assets/jcb2.png"],
@@ -305,7 +305,7 @@
       ]
     },
     {
-      "id": "fleet7",
+      "id": "fleet",
       "name": "TATA HITACHI 370",
       "image": "/assets/tatahitachi370.png",
       "additionalImages": [
@@ -357,7 +357,7 @@
       ]
     },
     {
-      "id": "fleet8",
+      "id": "fleet",
       "name": "TATA HITACHI 220",
       "image": "/assets/tatahitachi220.png",
       "additionalImages": [
@@ -409,7 +409,7 @@
       ]
     },
     {
-      "id": "fleet9",
+      "id": "fleet",
       "name": "TATA HITACHI 210",
       "image": "/assets/tatahitachi210.png",
       "additionalImages": [
@@ -461,7 +461,7 @@
       ]
     },
     {
-      "id": "fleet10",
+      "id": "fleet",
       "name": "KOBELCO 370",
       "image": "/assets/kobelco370.png",
       "additionalImages": [
@@ -513,7 +513,7 @@
       ]
     },
     {
-      "id": "fleet11",
+      "id": "fleet",
       "name": "TATA SIGNA HWYA",
       "image": "/assets/tatasignahwya.png",
       "additionalImages": [
@@ -565,7 +565,7 @@
       ]
     },
     {
-      "id": "fleet12",
+      "id": "fleet",
       "name": "Mahindra CAMPER",
       "image": "/assets/mahindracamper.png",
       "additionalImages": [
@@ -617,7 +617,7 @@
       ]
     },
     {
-      "id": "fleet13",
+      "id": "fleet",
       "name": "MAHINDRA HYWA",
       "image": "/assets/mahindrahywa.png",
       "additionalImages": [
@@ -669,7 +669,7 @@
       ]
     },
     {
-      "id": "fleet14",
+      "id": "fleet",
       "name": "CAT 323D3",
       "image": "/assets/cat2.png",
       "additionalImages": ["/assets/cat1.png", "/assets/cat.png"],
@@ -720,7 +720,7 @@
   ],
   "equipments": [
     {
-      "id": "equip1",
+      "id": "equipment",
       "name": "BREAKER",
       "image": "/assets/breaker.png",
       "additionalImages": ["/assets/breaker1.png", "/assets/breaker2.png"],
@@ -768,7 +768,7 @@
       ]
     },
     {
-      "id": "equip2",
+      "id": "equipment",
       "name": "ALTAS DRILLER",
       "image": "/assets/driller.png",
       "additionalImages": ["/assets/driller1.png", "/assets/driller2.png"],
@@ -816,7 +816,7 @@
       ]
     },
     {
-      "id": "equip3",
+      "id": "equipment",
       "name": "ALTAS COMPRESSOR",
       "image": "/assets/compressor.png",
       "additionalImages": [
@@ -867,7 +867,7 @@
       ]
     },
     {
-      "id": "equip4",
+      "id": "equipment",
       "name": "CRUSHER",
       "image": "/assets/crusher.png",
       "additionalImages": ["/assets/crusher1.png", "/assets/crusher2.png"],

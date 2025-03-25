@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import worker from "../assets/worker.jpg";
 import roller from "../assets/roller.jpg";
@@ -8,75 +8,6 @@ import team from "../assets/team.svg";
 import tick from "../assets/tick.svg";
 
 const Vision = () => {
-  const statsRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [counts, setCounts] = useState({
-    locations: 0,
-    machines: 0,
-    projects: 0,
-    clients: 0
-  });
-
-  // Final values for the counters
-  const finalCounts = {
-    locations: 3,
-    machines: 50,
-    projects: 30,
-    clients: 20
-  };
-
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
-    };
-  }, [isVisible]);
-
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const duration = 2000;
-    const steps = 60;
-    const stepTime = duration / steps;
-    let currentStep = 0;
-
-    const timer = setInterval(() => {
-      currentStep += 1;
-      const progress = Math.min(currentStep / steps, 1);
-
-      setCounts({
-        locations: Math.floor(progress * finalCounts.locations),
-        machines: Math.floor(progress * finalCounts.machines),
-        projects: Math.floor(progress * finalCounts.projects),
-        clients: Math.floor(progress * finalCounts.clients)
-      });
-
-      if (currentStep >= steps) {
-        clearInterval(timer);
-     
-        setCounts(finalCounts);
-      }
-    }, stepTime);
-
-    return () => clearInterval(timer);
-  }, [isVisible]);
-
   return (
     <>
       {/* Vision Section */}
@@ -100,6 +31,10 @@ const Vision = () => {
         </div>
       </div>
 
+
+
+   
+
       {/* Vision Content */}
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Text  */}
@@ -120,31 +55,6 @@ const Vision = () => {
             alt="Construction Workers"
             className="w-full h-full object-cover object-center"
           />
-        </div>
-      </div>
-
-      {/* Statistics Section */}
-      <div
-        ref={statsRef}
-        className="bg-red-600 text-white w-full py-4 md:py-16"
-      >
-        <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center px-4">
-          <div className="flex flex-col py-3">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.locations}</h3>
-            <p className="text-sm sm:text-base md:text-lg">Locations</p>
-          </div>
-          <div className="flex flex-col py-3">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.machines}+</h3>
-            <p className="text-sm sm:text-base md:text-lg">Machines</p>
-          </div>
-          <div className="flex flex-col py-3">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.projects}+</h3>
-            <p className="text-sm sm:text-base md:text-lg">Projects Completed</p>
-          </div>
-          <div className="flex flex-col py-3">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3">{counts.clients}+</h3>
-            <p className="text-sm sm:text-base md:text-lg">Satisfied Clients</p>
-          </div>
         </div>
       </div>
 

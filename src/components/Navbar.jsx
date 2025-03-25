@@ -170,11 +170,7 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const dropdownRef = useRef(null);
-
-  const isEquipmentsPage = location.pathname === "/equipments";
 
   useEffect(() => {
     if (isMenuOpen || isFormOpen) {
@@ -187,25 +183,8 @@ const Navbar = () => {
     };
   }, [isMenuOpen, isFormOpen]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const openContactForm = () => {
@@ -224,7 +203,6 @@ const Navbar = () => {
   return (
     <div className="absolute top-0 left-0 w-full z-20 py-6">
       <div className="container mx-auto px-4 flex justify-between items-center relative">
-      
         <Link
           to="/"
           className="absolute left-6 sm:left-10 md:left-16 lg:left-24
@@ -235,7 +213,6 @@ const Navbar = () => {
 
         {/* Center Navigation */}
         <div className="flex-grow flex justify-center">
-
           <nav
             className="max-md:hidden flex flex-row
                           md:space-x-4 lg:space-x-8
@@ -273,59 +250,22 @@ const Navbar = () => {
             >
               SERVICES
             </Link>
-
-            {/* Dropdown for Fleets/Equipments */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={toggleDropdown}
-                className={`flex items-center hover:text-[#d20000] transition-colors duration-300 ${
-                  location.pathname === "/fleets" ||
-                  location.pathname === "/equipments"
-                    ? "text-[#d20000]"
-                    : ""
-                }`}
-              >
-                {/* Show EQUIPMENTS if on equipments page, otherwise show FLEETS */}
-                {isEquipmentsPage ? "EQUIPMENTS" : "FLEETS"}
-                <svg
-                  className={`ml-1 w-4 h-4 transition-transform duration-200 ${
-                    isDropdownOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-48 z-50">
-                  {isEquipmentsPage ? (
-                    <Link
-                      to="/fleets"
-                      className="block px-4 py-2 text-white hover:text-[#d20000] transition-colors duration-300"
-                      onClick={() => setIsDropdownOpen(false)}
-                    >
-                      FLEETS
-                    </Link>
-                  ) : (
-                    <Link
-                      to="/equipments"
-                      className="block px-4 py-2 text-white hover:text-[#d20000] transition-colors duration-300"
-                      onClick={() => setIsDropdownOpen(false)}
-                    >
-                      EQUIPMENTS
-                    </Link>
-                  )}
-                </div>
-              )}
-            </div>
+            <Link
+              to="/fleets"
+              className={`hover:text-[#d20000] transition-colors duration-300 ${
+                location.pathname === "/fleets" ? "text-[#d20000]" : ""
+              }`}
+            >
+              FLEETS
+            </Link>
+            <Link
+              to="/equipments"
+              className={`hover:text-[#d20000] transition-colors duration-300 ${
+                location.pathname === "/equipments" ? "text-[#d20000]" : ""
+              }`}
+            >
+              EQUIPMENTS
+            </Link>
           </nav>
         </div>
 
@@ -339,7 +279,6 @@ const Navbar = () => {
           </button>
         </div>
 
-      
         <button
           className="absolute right-6 max-md:block hidden text-white text-3xl focus:outline-none z-30"
           onClick={toggleMenu}
@@ -387,32 +326,24 @@ const Navbar = () => {
               >
                 SERVICES
               </Link>
-
-              {/* Mobile Fleets/Equipments Links */}
-              <div className="flex flex-col items-center space-y-4">
-                {/* Primary link changes based on current page */}
-                <Link
-                  to={isEquipmentsPage ? "/equipments" : "/fleets"}
-                  className={`hover:text-[#d20000] transition-colors duration-300 ${
-                    (isEquipmentsPage && location.pathname === "/equipments") ||
-                    (!isEquipmentsPage && location.pathname === "/fleets")
-                      ? "text-[#d20000]"
-                      : ""
-                  }`}
-                  onClick={closeMenu}
-                >
-                  {isEquipmentsPage ? "EQUIPMENTS" : "FLEETS"}
-                </Link>
-
-                {/* Secondary link */}
-                <Link
-                  to={isEquipmentsPage ? "/fleets" : "/equipments"}
-                  className="text-gray-400 hover:text-[#d20000] transition-colors duration-300 text-base"
-                  onClick={closeMenu}
-                >
-                  {isEquipmentsPage ? "FLEETS" : "EQUIPMENTS"}
-                </Link>
-              </div>
+              <Link
+                to="/fleets"
+                className={`hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/fleets" ? "text-[#d20000]" : ""
+                }`}
+                onClick={closeMenu}
+              >
+                FLEETS
+              </Link>
+              <Link
+                to="/equipments"
+                className={`hover:text-[#d20000] transition-colors duration-300 ${
+                  location.pathname === "/equipments" ? "text-[#d20000]" : ""
+                }`}
+                onClick={closeMenu}
+              >
+                EQUIPMENTS
+              </Link>
 
               {/* Contact Us Button Mobile Menu */}
               <button

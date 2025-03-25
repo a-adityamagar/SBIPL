@@ -127,11 +127,6 @@ const Hero = () => {
         <h1 className="text-white text-3xl md:text-5xl font-bold leading-relaxed tracking-wider">
           LEADING MINING AND <br /> CONSTRUCTION EXPERTS
         </h1>
-
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-50 animate-bounce text-white text-5xl">
-          ⌄
-        </div>
       </div>
     </div>
   );
