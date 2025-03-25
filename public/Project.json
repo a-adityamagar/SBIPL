@@ -1,0 +1,139 @@
+{
+  "companies": [
+    {
+      "name": "Larsen & Toubro",
+      "logo": "/assets/larsenandtourbo.png",
+      "description": "",
+      "projects": [
+        "GMR Aerocity, Terminal-3, IGI Airport, New Delhi",
+        "Pkg - 4, Dwarka Expressway",
+        "Pkg - B3, Dwarka Expressway",
+        "DMRC Metro Projects, New Delhi",
+        "EDFC Cp 303 Project, Saidpur, Modinagar, Ghaziabad, Uttar Pradesh",
+        "India International Convention And Expo Centre, Dwarka Sec-25, New Delhi"
+      ]
+    },
+    {
+      "name": "GR Infraprojects Ltd.",
+      "logo": "/assets/grinfra.png",
+      "description": "",
+      "projects": ["Panipat to Sharanpur Highway Project"]
+    },
+    {
+      "name": "Gawar Construction Ltd",
+      "logo": "/assets/gawar.png",
+      "description": "",
+      "projects": [
+        "Jhajjar to Sonipat Highway Project",
+        "Vasant Kunj, New Delhi",
+        "Development of 6L UER II [Package - III] (Nangloi-Najafgarh Road till Sector 24 Dwarka)",
+        "152 - D, Narnaul to Ambala Expressway"
+      ]
+    },
+    {
+      "name": "HG Infra Engineering Limited",
+      "logo": "/assets/hginfra.png",
+      "description": "",
+      "projects": [
+        "Development of 6L UER III [Package - I] (NH-1 Near Bakoli till Karala Kanjhawala Road)"
+      ]
+    },
+    {
+      "name": "KCC Buildcon",
+      "logo": "/assets/kccbuildcon.png",
+      "description": "",
+      "projects": [
+        "Delhi Amritsar Katra Expressway from Jussur Kheri on KMP Expressway to Rohtak Panipat road",
+        "Delhi Amritsar Katra Expressway from Jind-Panipat road to Jind Karnal road"
+      ]
+    },
+    {
+      "name": "CDS",
+      "logo": "/assets/cds.png",
+      "description": "",
+      "projects": [
+        "Delhi Amritsar Katra Expressway from Rohtak Panipat road to Jind Panipat road",
+        "Delhi Amritsar Katra Expressway from Ambala Kaithal Hissar road to Patiala"
+      ]
+    },
+    {
+      "name": "Varaha Infra Limited",
+      "logo": "/assets/varaha.png",
+      "description": "",
+      "projects": ["Road Project, Rajasthan & Gujarat"]
+    },
+    {
+      "name": "GMR Projects Private Limited",
+      "logo": "/assets/gmr.png",
+      "description": "",
+      "projects": ["DIAL Project, IGI Airport, New Delhi"]
+    },
+    {
+      "name": "Shapoorji & Pallonji",
+      "logo": "/assets/shapoorji.png",
+      "description": "",
+      "projects": ["DLF Site, Gurgaon"]
+    },
+    {
+      "name": "Jaypee Associates Limited",
+      "logo": "/assets/jaypee.png",
+      "description": "",
+      "projects": ["Yamuna Expressway Project, UP"]
+    },
+    {
+      "name": "Unity Infra Project Limited",
+      "logo": "/assets/unityinfra.png",
+      "description": "",
+      "projects": ["Road Project, Haryana"]
+    },
+    {
+      "name": "Lafarge Aggregate & Concrete Pvt. Ltd",
+      "logo": "/assets/lafarage.png",
+      "description": "",
+      "projects": [
+        "Construction Site, Noida & Gurgaon",
+        "Operation & Maintenance of Crushing Plant, Rajasthan"
+      ]
+    },
+    {
+      "name": "Urban Eco Infra Pvt. Limited",
+      "logo": "/assets/urbaninfra.png",
+      "description": "",
+      "projects": ["Construction Site, Gurgaon"]
+    },
+    {
+      "name": "Ansal Housing & Construction Ltd",
+      "logo": "/assets/ansal.png",
+      "description": "",
+      "projects": ["Construction Site, Gurgaon"]
+    },
+    {
+      "name": "Ahluwalia Contracts (India) Ltd",
+      "logo": "/assets/ahluwalia.png",
+      "description": "",
+      "projects": ["Delhi (NCR) Site"]
+    },
+    {
+      "name": "NKC",
+      "logo": null,
+      "projects": [
+        "Delhi Amritsar Katra Expressway from Jind Karnal road to Ambala Kaithal Hissar road"
+      ]
+    },
+    {
+      "name": "J. Kumar Infraprojects Ltd.",
+      "logo": null,
+      "projects": ["Dwarka Expressway Projects"]
+    },
+    {
+      "name": "Longin Infra Limited",
+      "logo": null,
+      "projects": ["National Highway No.-8 Project, Rajasthan"]
+    },
+    {
+      "name": "Totem Limited",
+      "logo": null,
+      "projects": ["National Highway No.-8 Project, Rajasthan"]
+    }
+  ]
+}

@@ -9,7 +9,6 @@ const ItemCard = ({ item, pageType }) => {
   const [mainImage, setMainImage] = useState(item.image);
   const [thumbnails, setThumbnails] = useState([...(item.additionalImages || [])]);
 
-  // Function to swap images when clicking on a thumbnail
   const swapImages = (thumbnailImg, index) => {
     const newThumbnails = [...thumbnails];
     newThumbnails[index] = mainImage;
@@ -19,31 +18,30 @@ const ItemCard = ({ item, pageType }) => {
 
   // Function to navigate to item detail page
   const handleKnowMoreClick = () => {
-    // Navigate to detail page with item ID and type in the URL
     navigate(`/${pageType}/${item.id}`, { state: { itemData: item } });
   };
 
-  // Filter out specifications that don't have values
+  
   const availableSpecs = Object.entries(item.specifications || {}).filter(
     ([_, value]) => value !== undefined && value !== null && value !== ""
   );
 
   return (
     <div className="bg-[#f7f7f7] shadow-md h-full">
-      {/* Header section - reduced padding for mobile */}
+      {/* Header section */}
       <div className="p-3 pb-1 sm:p-4 sm:pb-2">
         <div className="flex justify-between items-start">
-          {/* Title with red underline - smaller text on mobile */}
+        
           <h3 className="text-base sm:text-lg md:text-xl font-bold text-black border-b-2 border-red-600 pb-1 inline-block">
             {item.name}
           </h3>
-          {/* Quantity circle - smaller on mobile */}
+         
           <div className="bg-red-600 rounded-full text-white h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex flex-col items-center justify-center text-center">
             <span className="text-sm sm:text-base md:text-xl font-bold">{item.quantity}</span>
             <span className="text-[8px] sm:text-xs">QTY</span>
           </div>
         </div>
-        {/* Know more button - smaller on mobile */}
+        {/* Know more button  */}
         <button 
           className="mt-1 sm:mt-2 bg-red-600 text-white px-2 sm:px-4 py-0.5 sm:py-1 text-xs sm:text-sm font-medium cursor-pointer hover:bg-red-700 transition-colors"
           onClick={handleKnowMoreClick}
@@ -52,7 +50,7 @@ const ItemCard = ({ item, pageType }) => {
         </button>
       </div>
 
-      {/* Main Image section with transparent background */}
+      {/* Main Image section */}
       <div
         className="relative flex justify-center items-center"
         style={{ height: "180px", minHeight: "150px" }}
@@ -65,11 +63,11 @@ const ItemCard = ({ item, pageType }) => {
         />
       </div>
 
-      {/* Specifications and Images section - always horizontal */}
+      {/* Specifications and Images section */}
       <div className="p-2 sm:p-3 md:p-4 ">
-        {/* Always keep in a row, but make it scrollable on small screens */}
+  
         <div className="flex items-center justify-between overflow-x-auto pb-1">
-          {/* Dynamic Specifications - scrollable on small screens */}
+          
           <div className="flex items-center space-x-3 sm:space-x-4 flex-1">
             {availableSpecs.map(([key, value]) => (
               <div key={key} className="text-center flex-shrink-0">
@@ -79,7 +77,7 @@ const ItemCard = ({ item, pageType }) => {
             ))}
           </div>
 
-          {/* Images - always in line with specs */}
+          {/* Images */}
           <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 ml-2">
             {thumbnails.map((img, index) => (
               <img
@@ -115,7 +113,7 @@ const Fleetandequipment = () => {
     }
   }, [location.pathname]);
 
-  // Fetch data from JSON file
+  // data from JSON file
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -128,7 +126,7 @@ const Fleetandequipment = () => {
 
         const jsonData = await response.json();
 
-        // Set the appropriate data based on page type
+
         if (pageType === "fleets") {
           setData(jsonData.fleets);
         } else if (pageType === "equipments") {
@@ -150,7 +148,7 @@ const Fleetandequipment = () => {
     }
   }, [pageType]);
 
-  // Get current page content
+
   const currentContent = pageContent[pageType] || {};
 
   if (loading) {
@@ -169,38 +167,38 @@ const Fleetandequipment = () => {
     );
   }
 
-  // Create pairs of items for the alternating layout
+  // Create pairs for the alternating layout
   const renderAlternatingLayout = () => {
-    // Group items into pairs (each row has 2 cards)
+ 
     const pairs = [];
     for (let i = 0; i < data.length; i += 2) {
       pairs.push(data.slice(i, i + 2));
     }
 
     return pairs.map((pair, pairIndex) => {
-      // Determine if this is an even or odd row for layout pattern
+      // Determine even or odd row for layout pattern
       const isEvenRow = pairIndex % 2 === 0;
 
       return (
         <div key={pairIndex} className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8">
-          {/* First card in pair - full width on mobile */}
+   
           {pair[0] && (
             <div className={`w-full mb-4 md:mb-0 md:w-${isEvenRow ? '3/5' : '2/5'}`}>
               <ItemCard item={pair[0]} pageType={pageType} />
             </div>
           )}
          
-          {/* Second card in pair (if available) - full width on mobile */}
+      
           {pair[1] && (
             <div className={`w-full md:w-${isEvenRow ? '2/5' : '3/5'}`}>
               <ItemCard item={pair[1]} pageType={pageType} />
             </div>
           )}
          
-          {/* If there's only one item in this pair, add empty placeholder to maintain layout */}
+          {/*  empty placeholder to maintain layout */}
           {pair.length === 1 && (
             <div className={`hidden md:block md:w-${isEvenRow ? '2/5' : '3/5'}`}>
-              {/* Empty placeholder */}
+            
             </div>
           )}
         </div>
@@ -213,7 +211,7 @@ const Fleetandequipment = () => {
       {/* Navigation Bar */}
       <Navbar />
 
-      {/* Hero Section with Background Image - reduced height on mobile */}
+      {/* Hero Section */}
       <div
         className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
@@ -233,10 +231,10 @@ const Fleetandequipment = () => {
         </div>
       </div>
 
-      {/* Main Content Section - reduced padding on mobile */}
+      {/* Main Content  */}
       <div className="w-full bg-gray-100 py-8 sm:py-10 md:py-12 lg:py-16">
         <div className="container mx-auto flex flex-col md:flex-row">
-          {/* Left side - Large equipment image */}
+        
           <div className="w-full md:w-1/2 p-3 sm:p-4 md:p-6">
             <div className="h-48 sm:h-64 md:h-80 lg:h-96">
               <img
@@ -251,7 +249,7 @@ const Fleetandequipment = () => {
             </div>
           </div>
 
-          {/* Right side - Text content - smaller text on mobile */}
+          
           <div className="w-full md:w-1/2 p-3 sm:p-4 md:p-6 flex flex-col justify-center">
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
@@ -265,10 +263,10 @@ const Fleetandequipment = () => {
         </div>
       </div>
 
-      {/* Items Section - reduced padding on mobile */}
+      {/* Items Section */}
       <div className="w-full py-8 sm:py-10 md:py-12 lg:py-16 bg-white">
         <div className="container mx-auto px-3 sm:px-4 md:px-6">
-          {/* Mixed size card layout with adjusted proportions */}
+         
           <div className="max-w-6xl mx-auto">
             {data.length === 0 ? (
               <div className="text-center py-8">No items available</div>

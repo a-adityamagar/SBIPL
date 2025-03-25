@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/ap
 
 const Client = () => {
   const [selectedLocation, setSelectedLocation] = useState({
-    lat: 28.6139, // Default to Delhi area
+    lat: 28.6139, 
     lng: 77.2090,
     label: 'Default'
   });

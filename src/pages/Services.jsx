@@ -23,12 +23,12 @@ const Services = () => {
     setFeaturedImage(clickedImage);
   };
 
-  // Function to open the contact form
+  //e contact form
   const openContactForm = () => {
     setIsFormOpen(true);
   };
 
-  // Function to close the contact form
+  // close the contact form
   const closeContactForm = () => {
     setIsFormOpen(false);
   };
@@ -41,7 +41,7 @@ const Services = () => {
       {/* Enquiry Form Modal */}
       <EnquiryFormModal isOpen={isFormOpen} onClose={closeContactForm} />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <div
         className="w-full h-[80vh] sm:h-[90vh] md:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
@@ -61,10 +61,10 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Service Offerings Section (based on the image) */}
+     
       <div className="w-full bg-gray-100 py-12 sm:py-16">
         <div className="container mx-auto flex flex-col md:flex-row">
-          {/* Left side - Large equipment image */}
+   
           <div className="w-full md:w-1/2 p-4 md:p-6">
             <div className="h-64 sm:h-80 md:h-96 lg:h-[28rem]">
               <img
@@ -75,13 +75,13 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Right side - Text and smaller images */}
+
           <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 Get Ready Our Comprehensive Service Offerings
               </h2>
-              {/* Increased letter spacing and line height in this paragraph */}
+           
               <p className="mb-6 sm:mb-8 text-gray-700 tracking-wider leading-loose text-base sm:text-lg">
                 Elevate Construction Standards: Providing Comprehensive
                 Solutions Tailored To Your Unique Projects Needs. Ensuring
@@ -90,7 +90,7 @@ const Services = () => {
               </p>
             </div>
 
-            {/* Three smaller equipment images with equal height and width */}
+       
             <div className="flex flex-wrap">
               {smallImages.map((image, index) => (
                 <div key={index} className="w-1/3 p-1 sm:p-2">
@@ -111,10 +111,10 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Our Services Section - Based on the new image */}
+      {/* Our Services  */}
       <div className="w-full py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-          {/* Aligned headings with the content below */}
+        
           <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 md:pl-0">
               Our Services
@@ -124,7 +124,7 @@ const Services = () => {
             </h3>
           </div>
 
-          {/* Site Management Section */}
+          {/* Site Management */}
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center mb-16 sm:mb-20">
             <div className="w-full md:w-2/3 pr-0 md:pr-12">
               <h4 className="text-xl sm:text-2xl font-semibold mb-4 border-b-2 border-red-600 pb-2 inline-block">
@@ -149,7 +149,7 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Pre-Construction Section */}
+          {/* Pre-Construction*/}
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center mb-16 sm:mb-20">
             <div className="w-full md:w-2/3 pl-0 md:pl-12">
               <h4 className="text-xl sm:text-2xl font-semibold mb-4 border-b-2 border-red-600 pb-2 inline-block">
@@ -199,7 +199,7 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Infrastructure Construction */}
+          {/* Infrastructure  */}
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center">
             <div className="w-full md:w-2/3 pl-0 md:pl-12">
               <h4 className="text-xl sm:text-2xl font-semibold mb-4 border-b-2 border-red-600 pb-2 inline-block">
@@ -226,7 +226,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* World Class Service Section - Based on the image you attached */}
+ 
       <div className="w-full py-12 sm:py-16 bg-gray-100">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
@@ -239,7 +239,8 @@ const Services = () => {
                 End-to-end services, from site management and pre-construction planning to special projects and infrastructure construction.
               </p>
               <div>
-                {/* Button to trigger the contact form popup */}
+         
+         
                 <button
                   onClick={openContactForm}
                   className="bg-[#d20000] text-white font-medium py-3 px-8 uppercase tracking-wider text-sm hover:bg-red-700 transition duration-300"
@@ -249,7 +250,6 @@ const Services = () => {
               </div>
             </div>
            
-            {/* Right side image */}
             <div className="w-full md:w-1/2 mt-8 md:mt-0">
               <div className="h-64 sm:h-72 md:h-80 lg:h-96">
                 <img

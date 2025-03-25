@@ -25,7 +25,6 @@ const Service = () => {
       </h2>
 
       <div className="flex flex-col gap-6">
-        {/* First row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Left Text Block */}
           <div className="md:col-span-1 flex items-center">
@@ -73,7 +72,7 @@ const Service = () => {
             </div>
           ))}
 
-          {/* Button Section with Link to services page */}
+          {/* Button  */}
           <div className="flex items-center justify-center">
             <Link to="/services" className="inline-block">
               <button className="bg-red-600 text-white px-8 py-3 text-base font-semibold uppercase hover:bg-red-700 transition duration-300">

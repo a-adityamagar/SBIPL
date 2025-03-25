@@ -64,7 +64,7 @@ const Aboutus = () => {
     }
   ];
 
-  // Determine which member appears on left or right based on swap state
+  // Determine which board member to display on the left and right
   const leftMember = isSwapped ? boardMembers[1] : boardMembers[0];
   const rightMember = isSwapped ? boardMembers[0] : boardMembers[1];
 
@@ -73,7 +73,7 @@ const Aboutus = () => {
       {/* Navbar Component */}
       <Navbar />
      
-      {/* Hero Section with Background Image - Reduced height on mobile */}
+      {/* Hero Section */}
       <div
         className="w-full h-[80vh] sm:h-[90vh] md:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
@@ -93,10 +93,9 @@ const Aboutus = () => {
         </div>
       </div>
      
-      {/* About Us Section - Images aligned to outer edges */}
+      {/* About Us */}
       <section className="py-8 sm:py-12 px-4 sm:px-0 md:px-0 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Top section - Text on left, Image on right */}
           <div className="flex flex-col md:flex-row mb-8 sm:mb-12">
             <div className="md:w-3/5 px-2 sm:px-4 md:px-12 py-4 sm:py-6 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">About Us</h2>
@@ -118,8 +117,7 @@ const Aboutus = () => {
               />
             </div>
           </div>
-         
-          {/* Bottom section - Image on left, Text on right */}
+        
           <div className="flex flex-col md:flex-row">
             <div className="md:w-2/5 order-last md:order-first h-48 sm:h-64 md:h-80 lg:h-96 mt-4 md:mt-0">
               <img
@@ -144,14 +142,14 @@ const Aboutus = () => {
       </section>
 
      
-      {/* Board Members Section - Redesigned as per image */}
+      {/* Board Members Section */}
       <section className="py-8 sm:py-12 px-4 md:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-right mb-4 sm:mb-8">BOARD MEMBERS</h2>
          
-          {/* Grid layout with proper spacing and alignment */}
+          {/* Grid layout  */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
-            {/* Left side - Board member image (no hover effect) */}
+            {/* Board member image  */}
             <div className="h-full">
               <div
                 className="rounded-lg overflow-hidden h-full"
@@ -167,20 +165,18 @@ const Aboutus = () => {
               </div>
             </div>
            
-            {/* Right side - Quote, name, and another picture with hover/click */}
+         
             <div className="flex flex-col h-full" ref={rightSideRef}>
-              {/* Top quote section - increased text size */}
               <div className="rounded-lg p-3 sm:p-6 mb-2 sm:mb-4 flex-grow-0">
                 <p className="text-base sm:text-lg md:text-xl tracking-wide leading-relaxed">
                   {leftMember.quote}
                 </p>
               </div>
              
-              {/* Name with underline - decreased font size and line height */}
+            
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 text-center flex-grow-0">{leftMember.name}</h3>
               <div className="h-0.5 bg-red-600 w-full mt-1 mb-2 sm:mb-4 flex-grow-0"></div>
-             
-              {/* Clickable right image with hover effect */}
+            
               <div
                 className="cursor-pointer rounded-lg overflow-hidden relative transition-transform duration-300 flex-grow h-48 sm:h-60 md:h-72"
                 onClick={togglePositions}
@@ -214,21 +210,21 @@ const Aboutus = () => {
       <section className="py-8 sm:py-12 md:py-16 px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 items-start">
-            {/* Left Side - Text Content */}
+           
             <div className="md:pr-8" ref={missionContentRef}>
               <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4 text-gray-800">OUR MISSION</h2>
-              {/* Increased letter spacing for this heading */}
+            
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-6 text-red-600 tracking-wide sm:tracking-wider leading-tight">
                 We Aim to Build a<br />Better World
               </h3>
               <div className="space-y-3 sm:space-y-6">
-                {/* Increased letter spacing and line height */}
+               
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose tracking-wide sm:tracking-wider">
                   Our vision is to set a strong foundation for excellence by prioritizing complete
                   customer satisfaction. We aim to deliver globally competitive services
                   while continuously adapting to evolving industry standards.
                 </p>
-                {/* Increased letter spacing and line height */}
+            
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose tracking-wide sm:tracking-wider">
                   With a dedicated and skilled team, we strive for continuous improvement,
                   ensuring high-quality service and unwavering commitment. Our goal is to
@@ -238,7 +234,7 @@ const Aboutus = () => {
               </div>
             </div>
            
-            {/* Right Side - Image with matched height to left content */}
+       
             <div className="mt-4 md:mt-0">
               <div
                 className="overflow-hidden shadow-lg"

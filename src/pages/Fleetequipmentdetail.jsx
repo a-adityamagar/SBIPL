@@ -15,7 +15,7 @@ const Fleetandequipmentdetail = () => {
   const [otherItems, setOtherItems] = useState([]);
   const [allData, setAllData] = useState(null);
 
-  // Determine page type once using useMemo
+  // Determine page type fleet or equipment
   const pageType = useMemo(() => {
     const path = location.pathname;
     if (path.includes("fleets")) return "fleets";
@@ -49,7 +49,7 @@ const Fleetandequipmentdetail = () => {
           // Get other items from the same category (excluding current item)
           const others = jsonData[pageType]
             .filter(otherItem => otherItem.id !== itemId)
-            .slice(0, 3); // Limit to 3 items
+            .slice(0, 3); 
           
           setOtherItems(others);
         } else {
@@ -63,19 +63,16 @@ const Fleetandequipmentdetail = () => {
       }
     };
 
-    // If item data was passed via state, use it directly
+    
     if (location.state?.itemData) {
       setItem(location.state.itemData);
       setActiveImage(location.state.itemData.image);
-      
-      // Still fetch all data to get other items
+ 
       fetchData();
     } else {
-      // Otherwise fetch everything
       fetchData();
     }
 
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, [id, pageType, location.state]);
 
@@ -95,7 +92,7 @@ const Fleetandequipmentdetail = () => {
     navigate(`/${pageType}/${item.id}`, { state: { itemData: item } });
   }, [navigate, pageType]);
 
-  // Memoize allImages to prevent recalculation on each render
+  // Memoize allImages 
   const allImages = useMemo(() => {
     if (!item) return [];
     return [item.image, ...(item.additionalImages || [])];
@@ -138,7 +135,7 @@ const Fleetandequipmentdetail = () => {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section*/}
       <div
         className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
@@ -174,7 +171,7 @@ const Fleetandequipmentdetail = () => {
         </button>
 
         {/* Item Detail Layout */}
-        <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+        <div className="bg-white rounded-lg overflow-hidden ">
           <div className="flex flex-col md:flex-row">
             {/* Left side - Image */}
             <div className="md:w-1/2 p-4 sm:p-6 flex items-center justify-center bg-white">
@@ -189,7 +186,7 @@ const Fleetandequipmentdetail = () => {
 
             {/* Right side - Title and information */}
             <div className="md:w-1/2 flex flex-col">
-              {/* Title in red box */}
+           
               <div className="bg-red-600 p-3 sm:p-4 text-white w-fit">
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">{item.name}</h2>
               </div>
@@ -246,7 +243,6 @@ const Fleetandequipmentdetail = () => {
                 </h3>
               </div>
               <div className="mt-4 sm:mt-6 flex flex-col md:flex-row ml-2 sm:ml-4 md:ml-6">
-                {/* Left side - 2 column specifications */}
                 <div className="md:w-1/2">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     {item.specIcons.map((spec, index) => (
@@ -346,7 +342,7 @@ const Fleetandequipmentdetail = () => {
             {otherItems.map((otherItem) => (
               <div 
                 key={otherItem.id} 
-                className="bg-[#f7f7f7] shadow-md overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
+                className="bg-[#f7f7f7]  overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
                 onClick={() => handleItemClick(otherItem)}
               >
                 <div className="p-2 sm:p-3 md:p-4 pb-1 sm:pb-2">
@@ -373,7 +369,7 @@ const Fleetandequipmentdetail = () => {
                   </button>
                 </div>
 
-                {/* Main Image section with transparent background */}
+                {/* Main Image section*/}
                 <div
                   className="relative flex justify-center items-center"
                   style={{ height: "120px", minHeight: "100px" }}
@@ -390,7 +386,6 @@ const Fleetandequipmentdetail = () => {
                 {/* Specifications section */}
                 <div className="p-2 sm:p-3 md:p-4">
                   <div className="flex items-center justify-between overflow-x-auto pb-1">
-                    {/* Dynamic Specifications - scrollable on small screens */}
                     <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-1">
                       {otherItem.specifications && Object.entries(otherItem.specifications)
                         .filter(([_, value]) => value !== undefined && value !== null && value !== "")

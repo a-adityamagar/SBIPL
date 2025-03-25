@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// Import the EnquiryFormModal component
+//  EnquiryFormModal component
 const EnquiryFormModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,7 +10,6 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
     message: "",
   });
 
-  // Create a ref for the modal content
   const modalContentRef = useRef(null);
 
   const handleChange = (e) => {
@@ -23,7 +22,7 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
+    // form submission
     console.log("Form submitted:", formData);
     // Reset form
     setFormData({
@@ -36,7 +35,6 @@ const EnquiryFormModal = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  // Function to handle clicks outside the modal
   const handleOutsideClick = (e) => {
     if (
       modalContentRef.current &&
@@ -173,10 +171,9 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
   const dropdownRef = useRef(null);
 
-  // Determine which menu item to show based on current location
   const isEquipmentsPage = location.pathname === "/equipments";
 
   useEffect(() => {
@@ -191,7 +188,6 @@ const Navbar = () => {
   }, [isMenuOpen, isFormOpen]);
 
   useEffect(() => {
-    // Close dropdown when clicking outside
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
@@ -214,7 +210,7 @@ const Navbar = () => {
 
   const openContactForm = () => {
     setIsFormOpen(true);
-    setIsMenuOpen(false); // Close the hamburger menu when opening the form
+    setIsMenuOpen(false);
   };
 
   const closeContactForm = () => {
@@ -228,7 +224,7 @@ const Navbar = () => {
   return (
     <div className="absolute top-0 left-0 w-full z-20 py-6">
       <div className="container mx-auto px-4 flex justify-between items-center relative">
-        {/* Logo - Custom responsive adjustments */}
+      
         <Link
           to="/"
           className="absolute left-6 sm:left-10 md:left-16 lg:left-24
@@ -239,7 +235,7 @@ const Navbar = () => {
 
         {/* Center Navigation */}
         <div className="flex-grow flex justify-center">
-          {/* Navigation - Custom responsive adjustments */}
+
           <nav
             className="max-md:hidden flex flex-row
                           md:space-x-4 lg:space-x-8
@@ -308,7 +304,6 @@ const Navbar = () => {
                 </svg>
               </button>
 
-              {/* Dropdown menu - show the opposite of what's currently displayed */}
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 z-50">
                   {isEquipmentsPage ? (
@@ -334,7 +329,7 @@ const Navbar = () => {
           </nav>
         </div>
 
-        {/* Contact Us Button - Right side */}
+        {/* Contact Us Button*/}
         <div className="absolute right-20 md:right-16 lg:right-24 z-30 max-md:hidden">
           <button
             onClick={openContactForm}
@@ -344,7 +339,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Button - Only visible below 764px */}
+      
         <button
           className="absolute right-6 max-md:block hidden text-white text-3xl focus:outline-none z-30"
           onClick={toggleMenu}
@@ -395,7 +390,7 @@ const Navbar = () => {
 
               {/* Mobile Fleets/Equipments Links */}
               <div className="flex flex-col items-center space-y-4">
-                {/* Primary link - changes based on current page */}
+                {/* Primary link changes based on current page */}
                 <Link
                   to={isEquipmentsPage ? "/equipments" : "/fleets"}
                   className={`hover:text-[#d20000] transition-colors duration-300 ${
@@ -409,7 +404,7 @@ const Navbar = () => {
                   {isEquipmentsPage ? "EQUIPMENTS" : "FLEETS"}
                 </Link>
 
-                {/* Secondary link - the opposite of what's shown above */}
+                {/* Secondary link */}
                 <Link
                   to={isEquipmentsPage ? "/fleets" : "/equipments"}
                   className="text-gray-400 hover:text-[#d20000] transition-colors duration-300 text-base"
@@ -419,7 +414,7 @@ const Navbar = () => {
                 </Link>
               </div>
 
-              {/* Contact Us Button in Mobile Menu */}
+              {/* Contact Us Button Mobile Menu */}
               <button
                 onClick={openContactForm}
                 className="bg-[#d20000] text-white px-6 py-2 rounded-sm font-medium mt-4 hover:bg-red-700 transition-colors duration-300"

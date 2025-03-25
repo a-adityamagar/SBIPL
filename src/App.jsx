@@ -9,6 +9,7 @@ import Client from "./components/Client";
 import Services from "./pages/Services";
 import Fleetandequipment from "./pages/Fleetandequipment";
 import Fleetandequipmentdetail from "./pages/Fleetequipmentdetail";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
@@ -21,12 +22,13 @@ function App() {
         <Route path="/equipments" element={<Fleetandequipment />} />
         <Route path="/fleets/:id" element={<Fleetandequipmentdetail/>} />
         <Route path="/equipments/:id" element={<Fleetandequipmentdetail/>} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </Router>
   );
 }
 
-// Home component that combines all your landing page sections
+// landing page
 function Home() {
   return (
     <>

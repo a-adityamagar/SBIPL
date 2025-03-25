@@ -44,7 +44,7 @@ const Project = () => {
         OUR PROJECTS
       </h2>
      
-      {/* Project Grid - Decreased heights, consistent gaps */}
+  
       <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 mx-auto max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-7xl mb-10 sm:mb-12 md:mb-16">
         {/* First Row */}
         <div className="col-span-1 border-2 border-red-600 relative h-16 sm:h-24 md:h-36 lg:h-44">
@@ -66,7 +66,7 @@ const Project = () => {
         </div>
       </div>
 
-      {/* View All Button - Responsive positioning and sizing */}
+      {/* View All Button  */}
       <div className="absolute left-1/2 transform -translate-x-1/2" 
            style={{ 
              bottom: 'calc(6rem + 5vw)',
@@ -79,7 +79,7 @@ const Project = () => {
   );
 };
 
-/* Component for Hover Effect with responsive text sizes */
+
 const ProjectImage = ({ project }) => {
   return (
     <div className="relative w-full h-full overflow-hidden">
@@ -88,16 +88,16 @@ const ProjectImage = ({ project }) => {
         alt={project.description}
         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
       />
-      {/* Linear Gradient Overlay with description at top and company at bottom */}
+     
       <div className="absolute inset-0 bg-gradient-to-b from-red-600/70 to-red-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2 sm:p-3">
-        {/* Description at top */}
+        {/* Description*/}
         <div>
           <p className="text-white text-[10px] sm:text-xs md:text-sm font-medium drop-shadow-md line-clamp-2 sm:line-clamp-3 md:line-clamp-4">
             {project.description}
           </p>
         </div>
        
-        {/* Company name at bottom */}
+        {/* Company name */}
         <div>
           <p className="text-white text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-wider drop-shadow-md">
             {project.company}
