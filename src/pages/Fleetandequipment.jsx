@@ -167,7 +167,7 @@ const Fleetandequipment = () => {
     );
   }
 
-  // Create pairs for the alternating layout
+  //pairs for the alternating layout
   const renderAlternatingLayout = () => {
  
     const pairs = [];
