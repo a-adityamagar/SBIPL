@@ -44,7 +44,6 @@ const Project = () => {
         OUR PROJECTS
       </h2>
      
-  
       <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 mx-auto max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-7xl mb-10 sm:mb-12 md:mb-16">
         {/* First Row */}
         <div className="col-span-1 border-2 border-red-600 relative h-16 sm:h-24 md:h-36 lg:h-44">
@@ -54,10 +53,10 @@ const Project = () => {
           <ProjectImage project={projects[4]} />
         </div>
         <div className="col-span-2 row-span-2 border-2 border-red-600 relative h-[calc(16rem/4+24rem/4+0.5rem)] sm:h-[calc(24rem/4+36rem/4+0.75rem)] md:h-[calc(36rem/4+56rem/4+1rem)] lg:h-[calc(44rem/4+72rem/4+1rem)]">
-          <ProjectImage project={projects[1]} />
+        <ProjectImage project={projects[1]} />
         </div>
 
-        {/* Second Row - Adjusted to maintain original layout */}
+        {/* Second Row */}
         <div className="col-span-1 border-2 border-red-600 relative h-24 sm:h-36 md:h-56 lg:h-72 -mt-8 sm:-mt-12 md:-mt-20 lg:-mt-28">
           <ProjectImage project={projects[2]} />
         </div>
@@ -67,18 +66,19 @@ const Project = () => {
       </div>
 
       {/* View All Button  */}
-      <div className="absolute left-1/2 transform -translate-x-1/2" 
-           style={{ 
+      <div className="absolute left-1/2 transform -translate-x-1/2"
+           style={{
              bottom: 'calc(6rem + 5vw)',
            }}>
-        <button className="bg-red-600 text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-semibold uppercase hover:bg-red-700 transition duration-300">
+        <a 
+          href="/projects"
+          className="inline-block bg-red-600 text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-semibold uppercase hover:bg-red-700 transition duration-300">
           View All
-        </button>
+        </a>
       </div>
     </section>
   );
 };
-
 
 const ProjectImage = ({ project }) => {
   return (
