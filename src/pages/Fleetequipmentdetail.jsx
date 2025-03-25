@@ -15,7 +15,7 @@ const Fleetandequipmentdetail = () => {
   const [otherItems, setOtherItems] = useState([]);
   const [allData, setAllData] = useState(null);
 
-  // Determine page type once using useMemo
+  // Determine page type using useMemo
   const pageType = useMemo(() => {
     const path = location.pathname;
     if (path.includes("fleets")) return "fleets";
@@ -23,7 +23,7 @@ const Fleetandequipmentdetail = () => {
     return "";
   }, [location.pathname]);
 
-  // Fetch all data from JSON file
+  // Fetch all data from JSON 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,11 +46,9 @@ const Fleetandequipmentdetail = () => {
           setItem(foundItem);
           setActiveImage(foundItem.image);
           
-          // Get other items from the same category (excluding current item)
-          // Using name instead of id for comparison to ensure uniqueness
           const others = jsonData[pageType]
             .filter(otherItem => otherItem.name !== foundItem.name)
-            .slice(0, 3); // Limit to 3 items
+            .slice(0, 3); 
           
           setOtherItems(others);
         } else {
@@ -64,19 +62,18 @@ const Fleetandequipmentdetail = () => {
       }
     };
 
-    // If item data was passed via state, use it directly
     if (location.state?.itemData) {
       setItem(location.state.itemData);
       setActiveImage(location.state.itemData.image);
       
-      // Still fetch all data to get other items
+  
       fetchData();
     } else {
-      // Otherwise fetch everything
+    
       fetchData();
     }
 
-    // Scroll to top when component mounts
+
     window.scrollTo(0, 0);
   }, [id, pageType, location.state]);
 
@@ -139,7 +136,7 @@ const Fleetandequipmentdetail = () => {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <div
         className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
@@ -152,11 +149,6 @@ const Fleetandequipmentdetail = () => {
               ? "OUR FLEET DETAILS"
               : "OUR EQUIPMENT DETAILS"}
           </h1>
-        </div>
-
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 animate-bounce text-white text-xl sm:text-2xl md:text-3xl">
-          ⌄
         </div>
       </div>
 
@@ -188,7 +180,7 @@ const Fleetandequipmentdetail = () => {
               />
             </div>
 
-            {/* Right side - Title and information */}
+            {/* Right side - Details */}
             <div className="md:w-1/2 flex flex-col">
               {/* Title in red box */}
               <div className="bg-red-600 p-3 sm:p-4 text-white w-fit">
@@ -209,7 +201,6 @@ const Fleetandequipmentdetail = () => {
                   comfortable driving experience.
                 </p>
 
-                {/* Thumbnail images in a row */}
                 {allImages.length > 1 && (
                   <div className="flex gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6">
                     {allImages.map((img, index) => (
@@ -237,7 +228,7 @@ const Fleetandequipmentdetail = () => {
             </div>
           </div>
 
-          {/* Specifications with Image */}
+          {/* Specifications  */}
           {item.specIcons && item.specIcons.length > 0 && (
             <div className="p-4 sm:p-6 pl-6 sm:pl-8 md:pl-16">
               <div className="ml-2 sm:ml-4 md:ml-6">
@@ -247,7 +238,7 @@ const Fleetandequipmentdetail = () => {
                 </h3>
               </div>
               <div className="mt-4 sm:mt-6 flex flex-col md:flex-row ml-2 sm:ml-4 md:ml-6">
-                {/* Left side - 2 column specifications */}
+             
                 <div className="md:w-1/2">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     {item.specIcons.map((spec, index) => (
@@ -346,7 +337,7 @@ const Fleetandequipmentdetail = () => {
                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                                {otherItems.map((otherItem) => (
                                  <div
-                                   key={otherItem.name} // Using name as key instead of id
+                                   key={otherItem.name} 
                                    className="bg-[#f7f7f7]  overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
                                    onClick={() => handleItemClick(otherItem)}
                                  >

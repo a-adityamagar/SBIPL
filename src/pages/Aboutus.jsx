@@ -9,7 +9,7 @@ import building from "../assets/building.jpg";
 import Client from "../components/Client";
 
 const Aboutus = () => {
-  const [isSwapped, setIsSwapped] = useState(true); // Start with Surendra Pal active (swapped)
+  const [isSwapped, setIsSwapped] = useState(true); 
   const [rightSideHeight, setRightSideHeight] = useState(0);
   const rightSideRef = useRef(null);
   const [missionContentHeight, setMissionContentHeight] = useState(0);
@@ -37,7 +37,7 @@ const Aboutus = () => {
     setIsSwapped(!isSwapped);
   };
 
-  // Measure the height of the right side content in board members section
+ 
   useEffect(() => {
     const updateHeight = () => {
       if (rightSideRef.current) {
@@ -66,9 +66,8 @@ const Aboutus = () => {
       clearTimeout(timer);
       window.removeEventListener('resize', updateHeight);
     };
-  }, [isSwapped]); // Re-run when isSwapped changes
-
-  // Counter animation observer
+  }, [isSwapped]);
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -119,7 +118,7 @@ const Aboutus = () => {
     return () => clearInterval(timer);
   }, [isVisible]);
 
-  // Define board members data
+  //board members data
   const boardMembers = [
     {
       name: "SURAMVEER",
@@ -135,7 +134,7 @@ const Aboutus = () => {
     }
   ];
 
-  // Determine which board member to display on the left and right
+
   const leftMember = isSwapped ? boardMembers[1] : boardMembers[0];
   const rightMember = isSwapped ? boardMembers[0] : boardMembers[1];
 

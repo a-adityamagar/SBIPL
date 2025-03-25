@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
-import { EnquiryFormModal } from "../components/Navbar"; // Import the EnquiryFormModal from Navbar
+import EnquiryFormModal from "../components/EnquiryFormModal"; 
 
 // Import images
 import main from "../assets/main.jpg";
@@ -17,7 +17,7 @@ import worker from "../assets/worker.jpg";
 // Lazy load the Client component
 const Client = lazy(() => import("../components/Client"));
 
-// Loading component for Suspense fallback
+
 const LoadingComponent = () => (
   <div className="bg-gray-100 p-8 text-center">
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600 mx-auto"></div>
@@ -25,7 +25,7 @@ const LoadingComponent = () => (
   </div>
 );
 
-// Memoized Image component for better performance
+// Memoized  for better performance
 const OptimizedImage = React.memo(({ src, alt, className, onClick }) => {
   return (
     <img
@@ -38,12 +38,12 @@ const OptimizedImage = React.memo(({ src, alt, className, onClick }) => {
   );
 });
 
-// Memoized Service Item component
+
 const ServiceItem = React.memo(({ title, description, icon, isReversed }) => {
   const containerClass = `max-w-5xl mx-auto flex flex-col ${
     isReversed ? "md:flex-row-reverse" : "md:flex-row"
   } items-center mb-16 sm:mb-20`;
-  
+ 
   const textContainerClass = `w-full md:w-2/3 ${
     isReversed ? "pl-0 md:pl-12" : "pr-0 md:pr-12"
   }`;
@@ -73,14 +73,14 @@ const ServiceItem = React.memo(({ title, description, icon, isReversed }) => {
 
 const Services = () => {
   const [featuredImage, setFeaturedImage] = useState(roller);
-  const [isFormOpen, setIsFormOpen] = useState(false); 
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-  // Memoize the equipment images array 
+  // Memoize the equipment images array
   const equipmentImages = useMemo(() => [roller, loader, heavy, power], []);
-  
-  // Memoize the filtered small images 
-  const smallImages = useMemo(() => 
-    equipmentImages.filter((img) => img !== featuredImage), 
+ 
+  // Memoize the filtered small images
+  const smallImages = useMemo(() =>
+    equipmentImages.filter((img) => img !== featuredImage),
     [equipmentImages, featuredImage]
   );
 
@@ -89,7 +89,7 @@ const Services = () => {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${main})`,
   }), []);
 
-  
+ 
   const serviceData = useMemo(() => [
     {
       title: "Site Management",

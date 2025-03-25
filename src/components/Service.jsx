@@ -26,7 +26,6 @@ const Service = () => {
 
       <div className="flex flex-col gap-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Left Text Block */}
           <div className="md:col-span-1 flex items-center">
             <p className="text-red-600 text-lg md:text-xl font-semibold leading-relaxed">
               We Offer a Range of <br /> Services to Meet Your <br /> Needs
@@ -54,7 +53,7 @@ const Service = () => {
 
         {/* Second row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Second row of service boxes */}
+       
           {service.slice(3, 6).map((item) => (
             <div
               key={item.id}

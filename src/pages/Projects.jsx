@@ -496,7 +496,6 @@ function Projects() {
         )}
       </div>
 
-      {/* Lazy load the Client component with a fallback */}
       <Suspense
         fallback={
           <div className="bg-black text-white p-8 text-center">
