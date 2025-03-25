@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Memoize the map component
 const MapComponent = memo(({ selectedLocation }) => {
-  // Create the Google Maps embed URL with the selected location
+  // Google Maps embed URL with the selected location
   const mapEmbedUrl = `https://maps.google.com/maps?width=100%25&height=600&hl=en&q=${encodeURIComponent(selectedLocation.label)}&t=&z=14&ie=UTF8&iwloc=B&output=embed`;
 
   return (
@@ -82,7 +82,7 @@ const Client = () => {
   return (
     <div className="bg-black text-white py-6 px-4 md:px-8 lg:px-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Left Section - Company Info */}
+        {/* Company Info */}
         <div className="lg:col-span-1">
           <h1 className="text-3xl font-bold text-red-600 mb-3">SBIPL</h1>
           <p className="mb-4">
@@ -111,7 +111,7 @@ const Client = () => {
           </div>
         </div>
        
-        {/* Middle Section - Quick Links */}
+        {/*  Quick Links */}
         <div className="lg:col-span-1">
           <h2 className="text-2xl font-bold text-red-600 mb-4">Quick Links</h2>
           <div className="space-y-3">
@@ -134,7 +134,7 @@ const Client = () => {
           </div>
         </div>
        
-        {/* Right Section - Google Map */}
+        {/*  Google Map */}
         <div className="lg:col-span-1">
           <h2 className="text-2xl font-bold text-red-600 mb-4">Google Map</h2>
           <div className="h-64 w-full rounded-md overflow-hidden">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import roller from "../assets/roller.jpg";
 import stone from "../assets/stone.jpg";
 import pit from "../assets/pit.jpg";
@@ -65,16 +66,16 @@ const Project = () => {
         </div>
       </div>
 
-      {/* View All Button  */}
+      {/* View All Button - Using Link instead of a tag */}
       <div className="absolute left-1/2 transform -translate-x-1/2"
            style={{
              bottom: 'calc(6rem + 5vw)',
            }}>
-        <a
-          href="/projects"
+        <Link
+          to="/projects"
           className="inline-block bg-red-600 text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-semibold uppercase hover:bg-red-700 transition duration-300">
           View All
-        </a>
+        </Link>
       </div>
     </section>
   );
