@@ -15,7 +15,7 @@ const Fleetandequipmentdetail = () => {
   const [otherItems, setOtherItems] = useState([]);
   const [allData, setAllData] = useState(null);
 
-  // Determine page type fleet or equipment
+  // Determine page type once using useMemo
   const pageType = useMemo(() => {
     const path = location.pathname;
     if (path.includes("fleets")) return "fleets";
@@ -47,9 +47,10 @@ const Fleetandequipmentdetail = () => {
           setActiveImage(foundItem.image);
           
           // Get other items from the same category (excluding current item)
+          // Using name instead of id for comparison to ensure uniqueness
           const others = jsonData[pageType]
-            .filter(otherItem => otherItem.id !== itemId)
-            .slice(0, 3); 
+            .filter(otherItem => otherItem.name !== foundItem.name)
+            .slice(0, 3); // Limit to 3 items
           
           setOtherItems(others);
         } else {
@@ -63,16 +64,19 @@ const Fleetandequipmentdetail = () => {
       }
     };
 
-    
+    // If item data was passed via state, use it directly
     if (location.state?.itemData) {
       setItem(location.state.itemData);
       setActiveImage(location.state.itemData.image);
- 
+      
+      // Still fetch all data to get other items
       fetchData();
     } else {
+      // Otherwise fetch everything
       fetchData();
     }
 
+    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, [id, pageType, location.state]);
 
@@ -92,7 +96,7 @@ const Fleetandequipmentdetail = () => {
     navigate(`/${pageType}/${item.id}`, { state: { itemData: item } });
   }, [navigate, pageType]);
 
-  // Memoize allImages 
+  // Memoize allImages to prevent recalculation on each render
   const allImages = useMemo(() => {
     if (!item) return [];
     return [item.image, ...(item.additionalImages || [])];
@@ -135,7 +139,7 @@ const Fleetandequipmentdetail = () => {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Hero Section*/}
+      {/* Hero Section with Background Image */}
       <div
         className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
         style={{
@@ -150,6 +154,10 @@ const Fleetandequipmentdetail = () => {
           </h1>
         </div>
 
+        {/* Scroll Down Indicator */}
+        <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 animate-bounce text-white text-xl sm:text-2xl md:text-3xl">
+          ⌄
+        </div>
       </div>
 
       {/* Item Detail Content */}
@@ -167,7 +175,7 @@ const Fleetandequipmentdetail = () => {
         </button>
 
         {/* Item Detail Layout */}
-        <div className="bg-white rounded-lg overflow-hidden ">
+        <div className="bg-white rounded-lg overflow-hidden shadow-sm">
           <div className="flex flex-col md:flex-row">
             {/* Left side - Image */}
             <div className="md:w-1/2 p-4 sm:p-6 flex items-center justify-center bg-white">
@@ -182,7 +190,7 @@ const Fleetandequipmentdetail = () => {
 
             {/* Right side - Title and information */}
             <div className="md:w-1/2 flex flex-col">
-           
+              {/* Title in red box */}
               <div className="bg-red-600 p-3 sm:p-4 text-white w-fit">
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">{item.name}</h2>
               </div>
@@ -239,6 +247,7 @@ const Fleetandequipmentdetail = () => {
                 </h3>
               </div>
               <div className="mt-4 sm:mt-6 flex flex-col md:flex-row ml-2 sm:ml-4 md:ml-6">
+                {/* Left side - 2 column specifications */}
                 <div className="md:w-1/2">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     {item.specIcons.map((spec, index) => (
@@ -306,130 +315,132 @@ const Fleetandequipmentdetail = () => {
                   </div>
                   <ul className="list-disc pl-6 sm:pl-8 md:pl-12 space-y-1 sm:space-y-2 mt-2 sm:mt-4">
                     {item.safetyFeatures.map((feature, index) => (
-                      <li key={index} className="text-gray-700 text-xs sm:text-sm md:text-base lg:text-lg">
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>  
-        </div>
-      </section>
-
-      {/* Other Fleets/Equipments Section */}
-      <section className="container mx-auto py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 bg-gray-50">
-        <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
-            Other {pageType === "fleets" ? "Fleets" : "Equipments"}
-          </h2>
-          <button 
-            onClick={handleShowMore}
-            className="bg-red-600 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm md:text-base hover:bg-red-700 transition-colors"
-          >
-            Show More
-          </button>
-        </div>
-        
-        {/* Cards Grid */}
-        {otherItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {otherItems.map((otherItem) => (
-              <div 
-                key={otherItem.id} 
-                className="bg-[#f7f7f7]  overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
-                onClick={() => handleItemClick(otherItem)}
-              >
-                <div className="p-2 sm:p-3 md:p-4 pb-1 sm:pb-2">
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-black border-b-2 border-red-600 pb-1 inline-block">
-                      {otherItem.name}
-                    </h3>
+                                           <li key={index} className="text-gray-700 text-xs sm:text-sm md:text-base lg:text-lg">
+                                           {feature}
+                                         </li>
+                                       ))}
+                                     </ul>
+                                   </div>
+                                 )}
+                               </div>
+                             </div>  
+                           </div>
+                         </section>
                    
-                    {otherItem.quantity && (
-                      <div className="bg-red-600 rounded-full text-white h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 flex flex-col items-center justify-center text-center">
-                        <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">{otherItem.quantity}</span>
-                        <span className="text-[6px] sm:text-[8px] md:text-xs">QTY</span>
-                      </div>
-                    )}
-                  </div>
-                  <button
-                    className="mt-1 sm:mt-2 bg-red-600 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 text-[10px] sm:text-xs md:text-sm font-medium cursor-pointer hover:bg-red-700 transition-colors"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleItemClick(otherItem);
-                    }}
-                  >
-                    Know more
-                  </button>
-                </div>
-
-                {/* Main Image section*/}
-                <div
-                  className="relative flex justify-center items-center"
-                  style={{ height: "120px", minHeight: "100px" }}
-                >
-                  <img
-                    src={otherItem.image}
-                    alt={otherItem.name}
-                    className="h-full object-contain"
-                    style={{ mixBlendMode: "multiply" }}
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Specifications section */}
-                <div className="p-2 sm:p-3 md:p-4">
-                  <div className="flex items-center justify-between overflow-x-auto pb-1">
-                    <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-1">
-                      {otherItem.specifications && Object.entries(otherItem.specifications)
-                        .filter(([_, value]) => value !== undefined && value !== null && value !== "")
-                        .map(([key, value]) => (
-                          <div key={key} className="text-center flex-shrink-0">
-                            <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-black whitespace-nowrap">{value}</p>
-                            <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 whitespace-nowrap">{key}</p>
-                          </div>
-                        ))}
-                    </div>
-
-                    {/* Thumbnail Images */}
-                    {otherItem.additionalImages && otherItem.additionalImages.length > 0 && (
-                      <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 ml-1 sm:ml-2">
-                        {otherItem.additionalImages.slice(0, 3).map((img, index) => (
-                          <img
-                            key={index}
-                            src={img}
-                            alt={`${otherItem.name} thumbnail ${index + 1}`}
-                            className="h-4 sm:h-5 md:h-6 lg:h-8 cursor-pointer hover:opacity-80 transition-opacity"
-                            style={{ mixBlendMode: "multiply" }}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-4 sm:py-6 md:py-8">
-            <p className="text-gray-600 text-sm sm:text-base">
-              No other {pageType === "fleets" ? "fleets" : "equipments"} available at the moment.
-            </p>
-            <button 
-              onClick={handleShowMore}
-              className="mt-2 sm:mt-4 bg-red-600 text-white px-4 sm:px-6 py-1 sm:py-2 rounded text-xs sm:text-sm md:text-base hover:bg-red-700 transition-colors"
-            >
-              Browse All {pageType === "fleets" ? "Fleets" : "Equipments"}
-            </button>
-          </div>
-        )}
-      </section>
-
-      <Client />
-    </div>
-  );
-};
-
-export default Fleetandequipmentdetail;
+                         {/* Other Fleets/Equipments Section */}
+                         <section className="container mx-auto py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 bg-gray-50">
+                           <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
+                             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
+                               Other {pageType === "fleets" ? "Fleets" : "Equipments"}
+                             </h2>
+                             <button
+                               onClick={handleShowMore}
+                               className="bg-red-600 text-white px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded text-xs sm:text-sm md:text-base hover:bg-red-700 transition-colors"
+                             >
+                               Show More
+                             </button>
+                           </div>
+                          
+                           {/* Cards Grid */}
+                           {otherItems.length > 0 ? (
+                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                               {otherItems.map((otherItem) => (
+                                 <div
+                                   key={otherItem.name} // Using name as key instead of id
+                                   className="bg-[#f7f7f7] shadow-md overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
+                                   onClick={() => handleItemClick(otherItem)}
+                                 >
+                                   <div className="p-2 sm:p-3 md:p-4 pb-1 sm:pb-2">
+                                     <div className="flex justify-between items-start">
+                                       <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-black border-b-2 border-red-600 pb-1 inline-block">
+                                         {otherItem.name}
+                                       </h3>
+                                      
+                                       {otherItem.quantity && (
+                                         <div className="bg-red-600 rounded-full text-white h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 flex flex-col items-center justify-center text-center">
+                                           <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">{otherItem.quantity}</span>
+                                           <span className="text-[6px] sm:text-[8px] md:text-xs">QTY</span>
+                                         </div>
+                                       )}
+                                     </div>
+                                     <button
+                                       className="mt-1 sm:mt-2 bg-red-600 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 text-[10px] sm:text-xs md:text-sm font-medium cursor-pointer hover:bg-red-700 transition-colors"
+                                       onClick={(e) => {
+                                         e.stopPropagation();
+                                         handleItemClick(otherItem);
+                                       }}
+                                     >
+                                       Know more
+                                     </button>
+                                   </div>
+                   
+                                   {/* Main Image section with transparent background */}
+                                   <div
+                                     className="relative flex justify-center items-center"
+                                     style={{ height: "120px", minHeight: "100px" }}
+                                   >
+                                     <img
+                                       src={otherItem.image}
+                                       alt={otherItem.name}
+                                       className="h-full object-contain"
+                                       style={{ mixBlendMode: "multiply" }}
+                                       loading="lazy"
+                                     />
+                                   </div>
+                   
+                                   {/* Specifications section */}
+                                   <div className="p-2 sm:p-3 md:p-4">
+                                     <div className="flex items-center justify-between overflow-x-auto pb-1">
+                                       {/* Dynamic Specifications - scrollable on small screens */}
+                                       <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 flex-1">
+                                         {otherItem.specifications && Object.entries(otherItem.specifications)
+                                           .filter(([_, value]) => value !== undefined && value !== null && value !== "")
+                                           .map(([key, value]) => (
+                                             <div key={key} className="text-center flex-shrink-0">
+                                               <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-black whitespace-nowrap">{value}</p>
+                                               <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 whitespace-nowrap">{key}</p>
+                                             </div>
+                                           ))}
+                                       </div>
+                   
+                                       {/* Thumbnail Images */}
+                                       {otherItem.additionalImages && otherItem.additionalImages.length > 0 && (
+                                         <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 ml-1 sm:ml-2">
+                                           {otherItem.additionalImages.slice(0, 3).map((img, index) => (
+                                             <img
+                                               key={index}
+                                               src={img}
+                                               alt={`${otherItem.name} thumbnail ${index + 1}`}
+                                               className="h-4 sm:h-5 md:h-6 lg:h-8 cursor-pointer hover:opacity-80 transition-opacity"
+                                               style={{ mixBlendMode: "multiply" }}
+                                             />
+                                           ))}
+                                         </div>
+                                       )}
+                                     </div>
+                                   </div>
+                                 </div>
+                               ))}
+                             </div>
+                           ) : (
+                             <div className="text-center py-4 sm:py-6 md:py-8">
+                               <p className="text-gray-600 text-sm sm:text-base">
+                                 No other {pageType === "fleets" ? "fleets" : "equipments"} available at the moment.
+                               </p>
+                               <button
+                                 onClick={handleShowMore}
+                                 className="mt-2 sm:mt-4 bg-red-600 text-white px-4 sm:px-6 py-1 sm:py-2 rounded text-xs sm:text-sm md:text-base hover:bg-red-700 transition-colors"
+                               >
+                                 Browse All {pageType === "fleets" ? "Fleets" : "Equipments"}
+                               </button>
+                             </div>
+                           )}
+                         </section>
+                   
+                         <Client />
+                       </div>
+                     );
+                   };
+                   
+                   export default Fleetandequipmentdetail;
+                   
