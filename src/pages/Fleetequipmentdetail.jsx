@@ -175,7 +175,7 @@ const Fleetandequipmentdetail = () => {
         </button>
 
         {/* Item Detail Layout */}
-        <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+        <div className="bg-white rounded-lg overflow-hidden ">
           <div className="flex flex-col md:flex-row">
             {/* Left side - Image */}
             <div className="md:w-1/2 p-4 sm:p-6 flex items-center justify-center bg-white">
@@ -347,7 +347,7 @@ const Fleetandequipmentdetail = () => {
                                {otherItems.map((otherItem) => (
                                  <div
                                    key={otherItem.name} // Using name as key instead of id
-                                   className="bg-[#f7f7f7] shadow-md overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
+                                   className="bg-[#f7f7f7]  overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
                                    onClick={() => handleItemClick(otherItem)}
                                  >
                                    <div className="p-2 sm:p-3 md:p-4 pb-1 sm:pb-2">
