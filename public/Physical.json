@@ -1,0 +1,145 @@
+{
+    "companyOverview": {
+      "name": "Global Mining Solutions",
+      "yearFounded": 2003,
+      "headquarters": "Perth, Australia",
+      "employees": 3750,
+      "operationalSites": 12
+    },
+    "financialMetrics": {
+      "revenue": {
+        "current": 1250000000,
+        "previous": 1050000000,
+        "growth": 19.05,
+        "currency": "USD"
+      },
+      "profitMargin": {
+        "current": 22.5,
+        "previous": 19.8,
+        "growth": 13.64
+      },
+      "capitalExpenditure": {
+        "current": 320000000,
+        "previous": 280000000,
+        "growth": 14.29,
+        "currency": "USD"
+      }
+    },
+    "productionCapacity": {
+      "total": 15000000,
+      "unit": "metric tons",
+      "utilizationRate": 87.5,
+      "byMineralType": [
+        { "name": "Iron Ore", "capacity": 8500000, "utilization": 92 },
+        { "name": "Copper", "capacity": 3200000, "utilization": 85 },
+        { "name": "Gold", "capacity": 150000, "utilization": 78 },
+        { "name": "Coal", "capacity": 2500000, "utilization": 81 },
+        { "name": "Bauxite", "capacity": 650000, "utilization": 89 }
+      ]
+    },
+    "salesDistribution": {
+      "byRegion": [
+        { "region": "Asia Pacific", "percentage": 42 },
+        { "region": "North America", "percentage": 23 },
+        { "region": "Europe", "percentage": 18 },
+        { "region": "Middle East", "percentage": 9 },
+        { "region": "Africa", "percentage": 5 },
+        { "region": "South America", "percentage": 3 }
+      ],
+      "byProduct": [
+        { "product": "Iron Ore", "percentage": 56 },
+        { "product": "Copper", "percentage": 22 },
+        { "product": "Gold", "percentage": 12 },
+        { "product": "Coal", "percentage": 7 },
+        { "product": "Other Minerals", "percentage": 3 }
+      ]
+    },
+    "quarterlyPerformance": {
+      "production": {
+        "labels": ["Q1 2023", "Q2 2023", "Q3 2023", "Q4 2023", "Q1 2024"],
+        "data": [3200000, 3450000, 3280000, 3520000, 3680000],
+        "unit": "metric tons"
+      },
+      "revenue": {
+        "labels": ["Q1 2023", "Q2 2023", "Q3 2023", "Q4 2023", "Q1 2024"],
+        "data": [285000000, 310000000, 295000000, 320000000, 340000000],
+        "unit": "USD"
+      }
+    },
+    "sustainabilityMetrics": {
+      "carbonEmissions": {
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "data": [1250000, 1180000, 1050000, 920000, 850000],
+        "unit": "metric tons CO2e",
+        "reductionTarget2030": 500000
+      },
+      "waterUsage": {
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "data": [8500000, 8200000, 7800000, 7200000, 6900000],
+        "unit": "kiloliters",
+        "reductionTarget2030": 4000000
+      },
+      "renewableEnergy": {
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "data": [12, 18, 25, 32, 38],
+        "unit": "percentage",
+        "target2030": 75
+      }
+    },
+    "operationalEfficiency": {
+      "equipmentUtilization": {
+        "excavators": 82,
+        "haul trucks": 78,
+        "crushers": 85,
+        "conveyors": 91,
+        "processing plants": 88
+      },
+      "downtime": {
+        "labels": ["Planned Maintenance", "Equipment Failure", "Weather Conditions", "Power Outages", "Other"],
+        "data": [58, 22, 12, 5, 3],
+        "unit": "percentage"
+      },
+      "productionCost": {
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "data": [42, 40, 38, 36, 34],
+        "unit": "USD per metric ton"
+      }
+    },
+    "safetyPerformance": {
+      "lostTimeInjuryFrequencyRate": {
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "data": [1.8, 1.5, 1.2, 0.9, 0.7],
+        "industryAverage": 1.4
+      },
+      "incidentsByType": {
+        "labels": ["Slips & Falls", "Vehicle Incidents", "Equipment Operation", "Falling Objects", "Other"],
+        "data": [35, 28, 22, 10, 5],
+        "unit": "percentage"
+      },
+      "safetyTrainingHours": {
+        "labels": ["2019", "2020", "2021", "2022", "2023"],
+        "data": [42000, 48000, 56000, 62000, 68000],
+        "unit": "hours"
+      }
+    },
+    "reservesAndResources": {
+      "totalReserves": {
+        "proven": 850000000,
+        "probable": 420000000,
+        "unit": "metric tons"
+      },
+      "reservesByMineral": [
+        { "mineral": "Iron Ore", "reserves": 720000000, "lifeOfMine": 28 },
+        { "mineral": "Copper", "reserves": 320000000, "lifeOfMine": 22 },
+        { "mineral": "Gold", "reserves": 12000000, "lifeOfMine": 18 },
+        { "mineral": "Coal", "reserves": 180000000, "lifeOfMine": 25 },
+        { "mineral": "Bauxite", "reserves": 38000000, "lifeOfMine": 16 }
+      ],
+      "resourceDevelopment": {
+        "labels": ["Exploration", "Feasibility Studies", "Mine Development", "Infrastructure", "Other"],
+        "data": [120000000, 85000000, 210000000, 180000000, 45000000],
+        "unit": "USD"
+      }
+    }
+  }
+  

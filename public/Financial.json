@@ -1,0 +1,207 @@
+{
+    "title": "Financial Records",
+    "description": "Monthly financial records from 2021 to 2024",
+    "records": {
+      "2021": {
+        "January": {
+          "pdfUrl": "",
+          "description": "Financial report for January 2021"
+        },
+        "February": {
+          "pdfUrl": "",
+          "description": "Financial report for February 2021"
+        },
+        "March": {
+          "pdfUrl": "",
+          "description": "Financial report for March 2021"
+        },
+        "April": {
+          "pdfUrl": "",
+          "description": "Financial report for April 2021"
+        },
+        "May": {
+          "pdfUrl": "",
+          "description": "Financial report for May 2021"
+        },
+        "June": {
+          "pdfUrl": "",
+          "description": "Financial report for June 2021"
+        },
+        "July": {
+          "pdfUrl": "",
+          "description": "Financial report for July 2021"
+        },
+        "August": {
+          "pdfUrl": "",
+          "description": "Financial report for August 2021"
+        },
+        "September": {
+          "pdfUrl": "",
+          "description": "Financial report for September 2021"
+        },
+        "October": {
+          "pdfUrl": "",
+          "description": "Financial report for October 2021"
+        },
+        "November": {
+          "pdfUrl": "",
+          "description": "Financial report for November 2021"
+        },
+        "December": {
+          "pdfUrl": "",
+          "description": "Financial report for December 2021"
+        }
+      },
+      "2022": {
+        "January": {
+          "pdfUrl": "",
+          "description": "Financial report for January 2022"
+        },
+        "February": {
+          "pdfUrl": "",
+          "description": "Financial report for February 2022"
+        },
+        "March": {
+          "pdfUrl": "",
+          "description": "Financial report for March 2022"
+        },
+        "April": {
+          "pdfUrl": "",
+          "description": "Financial report for April 2022"
+        },
+        "May": {
+          "pdfUrl": "",
+          "description": "Financial report for May 2022"
+        },
+        "June": {
+          "pdfUrl": "",
+          "description": "Financial report for June 2022"
+        },
+        "July": {
+          "pdfUrl": "",
+          "description": "Financial report for July 2022"
+        },
+        "August": {
+          "pdfUrl": "",
+          "description": "Financial report for August 2022"
+        },
+        "September": {
+          "pdfUrl": "",
+          "description": "Financial report for September 2022"
+        },
+        "October": {
+          "pdfUrl": "",
+          "description": "Financial report for October 2022"
+        },
+        "November": {
+          "pdfUrl": "",
+          "description": "Financial report for November 2022"
+        },
+        "December": {
+          "pdfUrl": "",
+          "description": "Financial report for December 2022"
+        }
+      },
+      "2023": {
+        "January": {
+          "pdfUrl": "",
+          "description": "Financial report for January 2023"
+        },
+        "February": {
+          "pdfUrl": "",
+          "description": "Financial report for February 2023"
+        },
+        "March": {
+          "pdfUrl": "",
+          "description": "Financial report for March 2023"
+        },
+        "April": {
+          "pdfUrl": "",
+          "description": "Financial report for April 2023"
+        },
+        "May": {
+          "pdfUrl": "",
+          "description": "Financial report for May 2023"
+        },
+        "June": {
+          "pdfUrl": "",
+          "description": "Financial report for June 2023"
+        },
+        "July": {
+          "pdfUrl": "",
+          "description": "Financial report for July 2023"
+        },
+        "August": {
+          "pdfUrl": "",
+          "description": "Financial report for August 2023"
+        },
+        "September": {
+          "pdfUrl": "",
+          "description": "Financial report for September 2023"
+        },
+        "October": {
+          "pdfUrl": "",
+          "description": "Financial report for October 2023"
+        },
+        "November": {
+          "pdfUrl": "",
+          "description": "Financial report for November 2023"
+        },
+        "December": {
+          "pdfUrl": "",
+          "description": "Financial report for December 2023"
+        }
+      },
+      "2024": {
+        "January": {
+          "pdfUrl": "",
+          "description": "Financial report for January 2024"
+        },
+        "February": {
+          "pdfUrl": "",
+          "description": "Financial report for February 2024"
+        },
+        "March": {
+          "pdfUrl": "",
+          "description": "Financial report for March 2024"
+        },
+        "April": {
+          "pdfUrl": "",
+          "description": "Financial report for April 2024"
+        },
+        "May": {
+          "pdfUrl": "",
+          "description": "Financial report for May 2024"
+        },
+        "June": {
+          "pdfUrl": "",
+          "description": "Financial report for June 2024"
+        },
+        "July": {
+          "pdfUrl": "",
+          "description": "Financial report for July 2024"
+        },
+        "August": {
+          "pdfUrl": "",
+          "description": "Financial report for August 2024"
+        },
+        "September": {
+          "pdfUrl": "",
+          "description": "Financial report for September 2024"
+        },
+        "October": {
+          "pdfUrl": "",
+          "description": "Financial report for October 2024"
+        },
+        "November": {
+          "pdfUrl": "",
+          "description": "Financial report for November 2024"
+        },
+        "December": {
+          "pdfUrl": "",
+          "description": "Financial report for December 2024"
+        }
+      }
+    }
+  }
+  

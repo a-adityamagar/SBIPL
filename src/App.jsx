@@ -10,6 +10,8 @@ import Services from "./pages/Services";
 import Fleetandequipment from "./pages/Fleetandequipment";
 import Fleetandequipmentdetail from "./pages/Fleetequipmentdetail";
 import Projects from "./pages/Projects";
+import Financial from "./pages/Financial";
+import Physical from "./pages/Physical";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/fleets/:id" element={<Fleetandequipmentdetail/>} />
         <Route path="/equipments/:id" element={<Fleetandequipmentdetail/>} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/performance/financial" element={<Financial />} />
+        <Route path="/performance/physical" element={<Physical />} />
       </Routes>
     </Router>
   );

@@ -7,6 +7,7 @@ import suramveer from "../assets/suramveer.png";
 import surendra from "../assets/surendra.png";
 import building from "../assets/building.jpg";
 import Client from "../components/Client";
+import Services from "./Services";
 
 const Aboutus = () => {
   const [isSwapped, setIsSwapped] = useState(true); 
@@ -298,6 +299,7 @@ const Aboutus = () => {
           </div>
         </div>
       </div>
+      <Services/>
      
       {/* Our Mission Section */}
       <section className="py-8 sm:py-12 md:py-16 px-4 md:px-8 bg-white">

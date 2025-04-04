@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import EnquiryFormModal from "./EnquiryFormModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  const [showPerformanceDropdown, setShowPerformanceDropdown] = useState(false);
+  const [showMobileAboutDropdown, setShowMobileAboutDropdown] = useState(false);
+  const [showMobilePerformanceDropdown, setShowMobilePerformanceDropdown] =
+    useState(false);
+  const aboutDropdownTimeoutRef = useRef(null);
+  const performanceDropdownTimeoutRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -17,6 +25,62 @@ const Navbar = () => {
       document.body.style.overflow = "auto";
     };
   }, [isMenuOpen, isFormOpen]);
+
+  // Add scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (aboutDropdownTimeoutRef.current) {
+        clearTimeout(aboutDropdownTimeoutRef.current);
+      }
+      if (performanceDropdownTimeoutRef.current) {
+        clearTimeout(performanceDropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleAboutDropdownEnter = () => {
+    if (aboutDropdownTimeoutRef.current) {
+      clearTimeout(aboutDropdownTimeoutRef.current);
+    }
+    setShowAboutDropdown(true);
+  };
+
+  const handleAboutDropdownLeave = () => {
+    aboutDropdownTimeoutRef.current = setTimeout(() => {
+      setShowAboutDropdown(false);
+    }, 300); // 300ms delay before hiding dropdown
+  };
+
+  const handlePerformanceDropdownEnter = () => {
+    if (performanceDropdownTimeoutRef.current) {
+      clearTimeout(performanceDropdownTimeoutRef.current);
+    }
+    setShowPerformanceDropdown(true);
+  };
+
+  const handlePerformanceDropdownLeave = () => {
+    performanceDropdownTimeoutRef.current = setTimeout(() => {
+      setShowPerformanceDropdown(false);
+    }, 300); // 300ms delay before hiding dropdown
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,13 +99,27 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const toggleMobileAboutDropdown = (e) => {
+    e.preventDefault();
+    setShowMobileAboutDropdown(!showMobileAboutDropdown);
+  };
+
+  const toggleMobilePerformanceDropdown = (e) => {
+    e.preventDefault();
+    setShowMobilePerformanceDropdown(!showMobilePerformanceDropdown);
+  };
+
   return (
-    <div className="absolute top-0 left-0 w-full z-20 py-6">
+    <div
+      className={`fixed top-0 left-0 w-full z-20 py-6 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4 flex justify-between items-center relative">
         <Link
           to="/"
-          className="absolute left-6 sm:left-10 md:left-16 lg:left-24
-                        text-red-600 text-3xl sm:text-2xl lg:text-3xl font-bold z-30"
+          className={`absolute left-6 sm:left-10 md:left-16 lg:left-24
+                        text-red-600 text-3xl sm:text-2xl lg:text-3xl font-bold z-30`}
         >
           SBIPL
         </Link>
@@ -56,39 +134,134 @@ const Navbar = () => {
             <Link
               to="/"
               className={`hover:text-[#d20000] transition-colors duration-300 ${
-                location.pathname === "/" ? "text-[#d20000]" : ""
+                location.pathname === "/"
+                  ? "text-[#d20000]"
+                  : isScrolled
+                  ? "text-gray-800"
+                  : "text-white"
               }`}
             >
               HOME
             </Link>
-            <Link
-              to="/about"
-              className={`hover:text-[#d20000] transition-colors duration-300 ${
-                location.pathname === "/about" ? "text-[#d20000]" : ""
-              }`}
+
+            {/* About Us Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleAboutDropdownEnter}
+              onMouseLeave={handleAboutDropdownLeave}
             >
-              ABOUT US
-            </Link>
+              <div
+                className={`hover:text-[#d20000] transition-colors duration-300 flex items-center cursor-pointer ${
+                  location.pathname === "/about"
+                    ? "text-[#d20000]"
+                    : isScrolled
+                    ? "text-gray-800"
+                    : "text-white"
+                }`}
+              >
+                OVERVIEW
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              {showAboutDropdown && (
+                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg overflow-hidden z-50">
+                  <Link
+                    to="/about"
+                    className="block w-full text-sm text-[#d20000] hover:bg-[#d20000] hover:text-white transition-colors duration-200"
+                    onClick={() => setShowAboutDropdown(false)}
+                  >
+                    <div className="px-4 py-2 w-full h-full">ABOUT US</div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link
               to="/projects"
               className={`hover:text-[#d20000] transition-colors duration-300 ${
-                location.pathname === "/projects" ? "text-[#d20000]" : ""
+                location.pathname === "/projects"
+                  ? "text-[#d20000]"
+                  : isScrolled
+                  ? "text-gray-800"
+                  : "text-white"
               }`}
             >
-              PROJECTS
+              OUR BUSINESS
             </Link>
-            <Link
-              to="/services"
-              className={`hover:text-[#d20000] transition-colors duration-300 ${
-                location.pathname === "/services" ? "text-[#d20000]" : ""
-              }`}
+            {/* Performance Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handlePerformanceDropdownEnter}
+              onMouseLeave={handlePerformanceDropdownLeave}
             >
-              SERVICES
-            </Link>
+              <div
+                className={`hover:text-[#d20000] transition-colors duration-300 flex items-center cursor-pointer ${
+                  location.pathname === "/performance" ||
+                  location.pathname === "/performance/physical" ||
+                  location.pathname === "/performance/financial"
+                    ? "text-[#d20000]"
+                    : isScrolled
+                    ? "text-gray-800"
+                    : "text-white"
+                }`}
+              >
+                PERFORMANCE
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              {showPerformanceDropdown && (
+                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg overflow-hidden z-50">
+                  <Link
+                    to="/performance/physical"
+                    className="block w-full text-sm text-[#d20000] hover:bg-[#d20000] hover:text-white transition-colors duration-200"
+                    onClick={() => setShowPerformanceDropdown(false)}
+                  >
+                    <div className="px-4 py-2 w-full h-full">PHYSICAL</div>
+                  </Link>
+                  <Link
+                    to="/performance/financial"
+                    className="block w-full text-sm text-[#d20000] hover:bg-[#d20000] hover:text-white transition-colors duration-200"
+                    onClick={() => setShowPerformanceDropdown(false)}
+                  >
+                    <div className="px-4 py-2 w-full h-full">FINANCIAL</div>
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link
               to="/fleets"
               className={`hover:text-[#d20000] transition-colors duration-300 ${
-                location.pathname === "/fleets" ? "text-[#d20000]" : ""
+                location.pathname === "/fleets"
+                  ? "text-[#d20000]"
+                  : isScrolled
+                  ? "text-gray-800"
+                  : "text-white"
               }`}
             >
               FLEETS
@@ -96,7 +269,11 @@ const Navbar = () => {
             <Link
               to="/equipments"
               className={`hover:text-[#d20000] transition-colors duration-300 ${
-                location.pathname === "/equipments" ? "text-[#d20000]" : ""
+                location.pathname === "/equipments"
+                  ? "text-[#d20000]"
+                  : isScrolled
+                  ? "text-gray-800"
+                  : "text-white"
               }`}
             >
               EQUIPMENTS
@@ -108,14 +285,16 @@ const Navbar = () => {
         <div className="absolute right-20 md:right-16 lg:right-24 z-30 max-md:hidden">
           <button
             onClick={openContactForm}
-            className="bg-[#d20000] text-white px-4 py-2 rounded-sm font-medium hover:bg-red-700 transition-colors duration-300"
+            className="bg-[#d20000] text-white px-4 py-1.5 rounded-sm text-sm font-medium mt-1 hover:bg-red-700 transition-colors duration-300"
           >
             CONTACT US
           </button>
         </div>
 
         <button
-          className="absolute right-6 max-md:block hidden text-white text-3xl focus:outline-none z-30"
+          className={`absolute right-6 max-md:block hidden text-3xl focus:outline-none z-30 ${
+            isScrolled ? "text-gray-800" : "text-white"
+          }`}
           onClick={toggleMenu}
         >
           {isMenuOpen ? "×" : "☰"}
@@ -134,15 +313,47 @@ const Navbar = () => {
               >
                 HOME
               </Link>
-              <Link
-                to="/about"
-                className={`hover:text-[#d20000] transition-colors duration-300 ${
-                  location.pathname === "/about" ? "text-[#d20000]" : ""
-                }`}
-                onClick={closeMenu}
-              >
-                ABOUT US
-              </Link>
+
+              {/* Mobile About Us section */}
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={toggleMobileAboutDropdown}
+                  className={`flex items-center hover:text-[#d20000] transition-colors duration-300 ${
+                    location.pathname === "/about" ? "text-[#d20000]" : ""
+                  }`}
+                >
+                  OVERVIEW
+                  <svg
+                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${
+                      showMobileAboutDropdown ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+
+                {showMobileAboutDropdown && (
+                  <div className="flex flex-col items-center mt-2 bg-white rounded overflow-hidden w-full">
+                    <Link
+                      to="/about"
+                      className="w-full text-center text-sm text-[#d20000] hover:bg-[#d20000] hover:text-white transition-colors duration-200"
+                      onClick={closeMenu}
+                    >
+                      <div className="px-4 py-2">ABOUT US</div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
               <Link
                 to="/projects"
                 className={`hover:text-[#d20000] transition-colors duration-300 ${
@@ -150,17 +361,56 @@ const Navbar = () => {
                 }`}
                 onClick={closeMenu}
               >
-                PROJECTS
+                OUR BUSINESS
               </Link>
-              <Link
-                to="/services"
-                className={`hover:text-[#d20000] transition-colors duration-300 ${
-                  location.pathname === "/services" ? "text-[#d20000]" : ""
-                }`}
-                onClick={closeMenu}
-              >
-                SERVICES
-              </Link>
+              {/* Mobile Performance section */}
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={toggleMobilePerformanceDropdown}
+                  className={`flex items-center hover:text-[#d20000] transition-colors duration-300 ${
+                    location.pathname.includes("/performance")
+                      ? "text-[#d20000]"
+                      : ""
+                  }`}
+                >
+                  PERFORMANCE
+                  <svg
+                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${
+                      showMobilePerformanceDropdown ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+
+                {showMobilePerformanceDropdown && (
+                  <div className="flex flex-col items-center mt-2 bg-white  overflow-hidden w-full">
+                    <Link
+                      to="/performance/physical"
+                      className="w-full text-center text-sm text-[#d20000] hover:bg-[#d20000] hover:text-white transition-colors duration-200"
+                      onClick={closeMenu}
+                    >
+                      <div className="px-4 py-2">PHYSICAL</div>
+                    </Link>
+                    <Link
+                      to="/performance/financial"
+                      className="w-full text-center text-sm text-[#d20000] hover:bg-[#d20000] hover:text-white transition-colors duration-200"
+                      onClick={closeMenu}
+                    >
+                      <div className="px-4 py-2">FINANCIAL</div>
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link
                 to="/fleets"
                 className={`hover:text-[#d20000] transition-colors duration-300 ${
@@ -179,11 +429,10 @@ const Navbar = () => {
               >
                 EQUIPMENTS
               </Link>
-
               {/* Contact Us Button  */}
               <button
                 onClick={openContactForm}
-                className="bg-[#d20000] text-white px-6 py-2 rounded-sm font-medium mt-4 hover:bg-red-700 transition-colors duration-300"
+                className="bg-[#d20000] text-white px-4 py-1.5 rounded-sm font-medium mt-2 hover:bg-red-700 transition-colors duration-300"
               >
                 CONTACT US
               </button>

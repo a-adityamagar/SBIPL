@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useMemo, lazy, Suspense } from "react";
-import Navbar from "../components/Navbar";
-import EnquiryFormModal from "../components/EnquiryFormModal"; 
+
 
 // Import images
 import main from "../assets/main.jpg";
@@ -12,11 +11,9 @@ import site from "../assets/site.svg";
 import preconstruction from "../assets/preconstruction.svg";
 import special from "../assets/special.svg";
 import infra from "../assets/infra.svg";
-import worker from "../assets/worker.jpg";
 
 // Lazy load the Client component
 const Client = lazy(() => import("../components/Client"));
-
 
 const LoadingComponent = () => (
   <div className="bg-gray-100 p-8 text-center">
@@ -25,7 +22,7 @@ const LoadingComponent = () => (
   </div>
 );
 
-// Memoized  for better performance
+// Memoized for better performance
 const OptimizedImage = React.memo(({ src, alt, className, onClick }) => {
   return (
     <img
@@ -37,7 +34,6 @@ const OptimizedImage = React.memo(({ src, alt, className, onClick }) => {
     />
   );
 });
-
 
 const ServiceItem = React.memo(({ title, description, icon, isReversed }) => {
   const containerClass = `max-w-5xl mx-auto flex flex-col ${
@@ -73,8 +69,7 @@ const ServiceItem = React.memo(({ title, description, icon, isReversed }) => {
 
 const Services = () => {
   const [featuredImage, setFeaturedImage] = useState(roller);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-
+  
   // Memoize the equipment images array
   const equipmentImages = useMemo(() => [roller, loader, heavy, power], []);
  
@@ -84,11 +79,9 @@ const Services = () => {
     [equipmentImages, featuredImage]
   );
 
-
   const heroBackgroundStyle = useMemo(() => ({
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${main})`,
   }), []);
-
  
   const serviceData = useMemo(() => [
     {
@@ -122,35 +115,9 @@ const Services = () => {
     setFeaturedImage(clickedImage);
   }, []);
 
-  const openContactForm = useCallback(() => {
-    setIsFormOpen(true);
-  }, []);
-
-  const closeContactForm = useCallback(() => {
-    setIsFormOpen(false);
-  }, []);
-
   return (
     <div className="relative w-full min-h-screen">
-      {/* Navbar Component */}
-      <Navbar />
-
-      {/* Enquiry Form Modal */}
-      <EnquiryFormModal isOpen={isFormOpen} onClose={closeContactForm} />
-
-      {/* Hero Section */}
-      <div
-        className="w-full h-[80vh] sm:h-[90vh] md:h-screen flex items-center justify-center text-white text-center bg-cover bg-center relative"
-        style={heroBackgroundStyle}
-      >
-        <div className="max-w-4xl px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg mb-4 sm:mb-6 leading-relaxed tracking-wide sm:tracking-widest">
-            Solution To Bring Your <br />
-            Vision Live
-          </h1>
-        </div>
-      </div>
-
+     
       {/* Equipment Showcase Section */}
       <div className="w-full bg-gray-100 py-12 sm:py-16">
         <div className="container mx-auto flex flex-col md:flex-row">
@@ -163,13 +130,12 @@ const Services = () => {
               />
             </div>
           </div>
-
           <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 Get Ready Our Comprehensive Service Offerings
               </h2>
-           
+              
               <p className="mb-6 sm:mb-8 text-gray-700 tracking-wider leading-loose text-base sm:text-lg">
                 Elevate Construction Standards: Providing Comprehensive
                 Solutions Tailored To Your Unique Projects Needs. Ensuring
@@ -177,7 +143,6 @@ const Services = () => {
                 Way
               </p>
             </div>
-
             <div className="flex flex-wrap">
               {smallImages.map((image, index) => (
                 <div key={index} className="w-1/3 p-1 sm:p-2">
@@ -209,7 +174,6 @@ const Services = () => {
               Building excellence, Delivering trust
             </h3>
           </div>
-
           {/* Service Items  */}
           {serviceData.map((service, index) => (
             <ServiceItem
@@ -223,45 +187,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Call to Action Section */}
-      <div className="w-full py-12 sm:py-16 bg-gray-100">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
-            {/* Left side content */}
-            <div className="w-full md:w-1/2 pr-0 md:pr-10 flex flex-col h-full justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-red-600 mb-4 tracking-wide leading-tight">
-                We Provide World Class Service
-              </h2>
-              <p className="text-gray-800 mb-8 text-base sm:text-lg leading-relaxed tracking-wide">
-                End-to-end services, from site management and pre-construction planning to special projects and infrastructure construction.
-              </p>
-              <div>
-                <button
-                  onClick={openContactForm}
-                  className="bg-[#d20000] text-white font-medium py-3 px-8 uppercase tracking-wider text-sm hover:bg-red-700 transition duration-300"
-                >
-                  Contact Us
-                </button>
-              </div>
-            </div>
-           
-            <div className="w-full md:w-1/2 mt-8 md:mt-0">
-              <div className="h-64 sm:h-72 md:h-80 lg:h-96">
-                <OptimizedImage
-                  src={worker}
-                  alt="Construction professionals reviewing plans"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Lazy load the Client component */}
-      <Suspense fallback={<LoadingComponent />}>
-        <Client />
-      </Suspense>
+     
     </div>
   );
 };

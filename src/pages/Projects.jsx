@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
 import project from "../assets/project.jpg";
+import ContactUs from "../components/Contactus";
 // Lazy load
 const Client = lazy(() => import("../components/Client"));
 
@@ -495,6 +496,7 @@ function Projects() {
           </div>
         )}
       </div>
+      <ContactUs/>
 
       <Suspense
         fallback={
