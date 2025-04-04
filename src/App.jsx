@@ -12,6 +12,7 @@ import Fleetandequipmentdetail from "./pages/Fleetequipmentdetail";
 import Projects from "./pages/Projects";
 import Financial from "./pages/Financial";
 import Physical from "./pages/Physical";
+import CSR from "./pages/CSR";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/performance/financial" element={<Financial />} />
         <Route path="/performance/physical" element={<Physical />} />
+        <Route path="/csr" element={<CSR />} />
       </Routes>
     </Router>
   );

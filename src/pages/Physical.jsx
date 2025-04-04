@@ -229,9 +229,6 @@ const Physical = () => {
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-wide drop-shadow-lg">
             Company Performance Dashboard
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-            Exploring key metrics and insights for sustainable growth
-          </p>
         </div>
        
       </div>

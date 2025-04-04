@@ -1,0 +1,56 @@
+{
+    "workers": [
+      {
+        "name": "John Doe",
+        "title": "Senior Engineer",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Jane Smith",
+        "title": "Project Manager",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Michael Brown",
+        "title": "Safety Officer",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Emily Davis",
+        "title": "HR Specialist",
+        "image": "https://images.unsplash.com/photo-1517841902196-7e9559c8e3f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Robert Wilson",
+        "title": "Operations Lead",
+        "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Sarah Johnson",
+        "title": "Community Liaison",
+        "image": "https://images.unsplash.com/photo-1524504388940-b0b7d914c36a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      }
+    ],
+    "contributions": [
+      {
+        "title": "Bus Donations",
+        "description": "Donated 10 buses to local schools to improve student transportation.",
+        "image": "https://images.unsplash.com/photo-1502877338535-766e3a9e7347?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "title": "Tree Plantation Drive",
+        "description": "Planted over 5,000 trees in rural areas to combat deforestation.",
+        "image": "https://images.unsplash.com/photo-1502082553048-f009c37129a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "title": "Scholarships Program",
+        "description": "Awarded scholarships to 50 underprivileged students for higher education.",
+        "image": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "title": "Community Functions",
+        "description": "Hosted annual events to celebrate and support local traditions.",
+        "image": "https://images.unsplash.com/photo-1515168833906-d2a3f91537d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      }
+    ]
+  }
